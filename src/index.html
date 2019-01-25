@@ -8,38 +8,56 @@
   <title> Feminist Social Network</title>
 </head>
 <body>
-
-<h1 class="centered-text">Nombre</h1>
-
-<p class= "centered-text">Este es el slogan</p>
-
-
-<form action="/action_page.php">
-
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+<section id= "first-screen">
   <div>
-    <button type="submit">Login</button>
+    <img src="" alt="">
   </div>
+  <div>
+    <h1>Nombre</h1>
+    <p>Slogan</p>
+  </div>
+  <div>
+    <button id="button-to-sign-up">¿Nuevo usuario?</button>
+    <button>Registrate</button>
+  </div>
+
+</section>
+<section id="second-screen"> 
+    <h1 class="centered-text">Nombre</h1>
+
+    <p class= "centered-text">Este es el slogan</p>
     
+    <form>
+    
+      <div class="container">
+    
+        <label for="uname"><b>Name</b></label>
+        <input id = "name" type="text" placeholder="Enter your name" name="uname" required> 
+    
+        <label for="uname"><b>Correo electronico</b></label>
+        <input id = "email" type="email" placeholder="Enter correo electronico" name="uname" required>
+    
+        <label for="psw"><b>Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+      <div>
+        <button id="button-to-create-new-user" type="submit">Register now</button>
+      </div>
+        
+    
+      </div>
+    
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+</section>
 
-  </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-
-<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
 <script>
   // Initialize Firebase
-  var config = {
+  const config = {
     apiKey: "AIzaSyAZ1JdD_Y4uI21Y5cL2c0PNDLOi1xQC2V0",
     authDomain: "social-network1-b2e89.firebaseapp.com",
     databaseURL: "https://social-network1-b2e89.firebaseio.com",
@@ -50,5 +68,6 @@
   firebase.initializeApp(config);
 </script>
   <script type="module" src="main.js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
