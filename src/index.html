@@ -4,19 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
   <title> Feminist Social Network</title>
 </head>
 <body>
 
-<h1>The future is female</h1>
+<h1 class="centered-text">Nombre</h1>
 
-<p>It´s the new era</p>
-<form action="formulario">
-  <input type="text">
+<p class= "centered-text">Este es el slogan</p>
+
+
+<form action="/action_page.php">
+
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+  <div>
+    <button type="submit">Login</button>
+  </div>
+    
+
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
 </form>
 
-<p>try</p>
-<p>3</p>
 <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
 <script>
   // Initialize Firebase
