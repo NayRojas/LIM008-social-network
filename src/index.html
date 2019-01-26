@@ -25,25 +25,26 @@
     <p class= "centered-text">Este es el slogan</p>
     <form>
       <div class="container">
-        <label><b>Name</b></label>
-        <input id = "name" type="text" placeholder="Enter your name" name="uname" > 
+        <label><b>Nombre</b></label>
+        <input id = "name" type="text" placeholder="Ingresa tu nombre" name="uname" > 
         <label><b>Correo electronico</b></label>
-        <input id = "email" type="email" placeholder="Enter correo electronico" name="uname" >
-        <p id="error-messase-invalid-email"></p>
-        <label for="password"><b>Password</b></label>
-        <input id="password" type="password" placeholder="Enter Password" name="psw" >
-        <p id="error-message-password"></p>
-      <div>
-        <button id="button-to-create-new-user" type="submit">Register now</button>
-      </div>
-      <div>
-        <button id="button-to-create-new-user-google" type="submit">Google</button>
-      </div>
+        <input id = "email" type="email" placeholder="Ingresa un correo electronico" name="uname" >
+        <p id="error-messase-invalid-email" class="error-message"></p>
+        <label for="password"><b>Contraseña</b></label>
+        <input id="password" type="password" placeholder="Contraseña de 6 caracteres" name="psw" >
+        <p id="error-message-password" class="error-message"></p>
+        <div>
+            <button id="button-to-create-new-user-google" type="submit">Google</button>
+          </div>
+        <div>
+          <button id="button-to-create-new-user" type="submit">Registrate ahora</button>
+          <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
+        </div>
     </div>
 
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a></span>
+        <span class="psw">¿Olvidaste tu <a href="#">contraseña?</a></span>
       </div>
     </form>
 </section>

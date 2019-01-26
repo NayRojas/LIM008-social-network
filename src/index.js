@@ -8,12 +8,14 @@ document.getElementById('second-screen').style.display = 'none';
 const btnSingUp = document.getElementById('button-to-sign-up');
 const btnCreateUser = document.getElementById('button-to-create-new-user');
 const btnSignUpWithGoogle = document.getElementById('button-to-create-new-user-google');
-// const nameTxt = document.getElementById('name');
+const nameTxt = document.getElementById('name');
 const emailTxt = document.getElementById('email');
 const passwordTxt = document.getElementById('password');
 const welcome = document.getElementById('welcome-new-user-screen');
 const errorWeakPassword = document.getElementById('error-message-password');
 const errorInvalidEmail = document.getElementById('error-messase-invalid-email');
+const errorMissingFields = document.getElementById('error-missing-fields-on-registration');
+
 
 // Añadir evento de cambio de vista a crear nuevo usuario
 btnSingUp. addEventListener('click', () => {
@@ -24,24 +26,31 @@ btnSingUp. addEventListener('click', () => {
 btnCreateUser.addEventListener('click', e => {
   e.preventDefault();
   // obtener name, email y password
-  // const name = nameTxt.value;
+  const name = nameTxt.value;
   const email = emailTxt.value;
   const password = passwordTxt.value;
-  const auth = firebase.auth();
-  // sign Up
-  auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    if (errorCode === 'auth/weak-password') {
-      errorWeakPassword.innerHTML = 'Tu contraseña debe tener 6 carácteres :)';
-    } else if (errorCode === 'auth/invalid-email') {
-      errorInvalidEmail.innerHTML = '¡Hey! Ingresa un correo electronico válido';
-    } else {
-      hideFirstScreenAndWelcome();
-      showWelcomeScreen();
-    }
-  });
+  if (name === '' || email === '' || password === '') {
+    console.log('entro');
+    errorMissingFields.innerHTML ='Completa tus datos para ser parte de Eva.';  
+  } else {
+    const auth = firebase.auth();
+    // sign Up
+    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      if (errorCode === 'auth/invalid-email') {
+        errorInvalidEmail.innerHTML = '¡Hey! Ingresa un correo electronico válido';
+        console.log(errorMessage);
+      } else if (errorCode === 'auth/weak-password') {
+        errorWeakPassword.innerHTML = 'Tu contraseña debe tener 6 carácteres :)';
+        console.log(errorMessage);
+      } else {
+        hideFirstScreenAndWelcome();
+        showWelcomeScreen();
+      }
+    });
+  };
 });
 
 // Añadir evento Crear usuario con Google
@@ -90,6 +99,8 @@ const showWelcomeScreen = () => {
   window.tempNewUserWelcome += newUserWelcome;
   welcome.innerHTML = window.tempNewUserWelcome;
 };
+
+
 import { myFunction } from './lib/index.js';
 
 myFunction();
