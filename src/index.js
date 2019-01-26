@@ -9,6 +9,8 @@ const btnSingUp = document.getElementById('button-to-sign-up'); // Botón elige 
 const btnLogIn = document.getElementById('button-to-log-in'); // Botón Iniciar sesión
 const btnSignUpWithEmailAndPassword = document.getElementById('button-to-create-new-user'); // Botón crea nuevo usuario
 const btnSignUpWithGoogle = document.getElementById('button-to-create-new-user-google'); // Botón crea nuevo usuario con google
+const btnLogInFromSignUpForm = document.getElementById('log-in-from-create-user');// Link ir a iniciar sesión desde crear cuenta
+const btSignUpFromLogInForm = document.getElementById('sign-up-from-log-in');// Link ir a crear cuenta desde iniciar sesión
 const nameTxt = document.getElementById('name'); // Input toma valor del nombre 
 const emailTxt = document.getElementById('email'); // Input toma valor del email 
 const passwordTxt = document.getElementById('password'); // Input toma valor del password 
@@ -25,6 +27,11 @@ btnSingUp. addEventListener('click', () => {
 });
 // Añadir evento de cambio de vista a iniciar sesión
 btnLogIn.addEventListener('click', () => {
+  hideFirstScreenAndWelcome();
+  showLogInScreen();
+});
+// Añadir evento de cambio de vista a iniciar sesión desde la vista de crear cuenta
+btnLogInFromSignUpForm.addEventListener('click', () => {
   hideFirstScreenAndWelcome();
   showLogInScreen();
 });
@@ -116,6 +123,7 @@ const showLogInScreen = () => {
                 <button type="button" class="cancelbtn">Cancel</button>
                 <span class="psw">¿Olvidaste tu <a href="#">contraseña?</a></span>
               </div>
+              <p class="center-text">¿No tienes cuenta?, <a id="sign-up-from-log-in">registrate aquí.</a></p>
             </form>
         </section>
             `;
