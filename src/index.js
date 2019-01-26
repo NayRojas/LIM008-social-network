@@ -5,25 +5,32 @@ document.getElementById('first-screen').style.display = 'block';
 document.getElementById('second-screen').style.display = 'none';
 
 // Constantes para manipulación del DOM
-const btnSingUp = document.getElementById('button-to-sign-up');
-const btnCreateUser = document.getElementById('button-to-create-new-user');
-const btnSignUpWithGoogle = document.getElementById('button-to-create-new-user-google');
-const nameTxt = document.getElementById('name');
-const emailTxt = document.getElementById('email');
-const passwordTxt = document.getElementById('password');
-const welcome = document.getElementById('welcome-new-user-screen');
-const errorWeakPassword = document.getElementById('error-message-password');
-const errorInvalidEmail = document.getElementById('error-messase-invalid-email');
-const errorMissingFields = document.getElementById('error-missing-fields-on-registration');
+const btnSingUp = document.getElementById('button-to-sign-up'); // Botón elige Soy nuevo usuario
+const btnLogIn = document.getElementById('button-to-log-in'); // Botón Iniciar sesión
+const btnSignUpWithEmailAndPassword = document.getElementById('button-to-create-new-user'); // Botón crea nuevo usuario
+const btnSignUpWithGoogle = document.getElementById('button-to-create-new-user-google'); // Botón crea nuevo usuario con google
+const nameTxt = document.getElementById('name'); // Input toma valor del nombre 
+const emailTxt = document.getElementById('email'); // Input toma valor del email 
+const passwordTxt = document.getElementById('password'); // Input toma valor del password 
+const welcome = document.getElementById('welcome-new-user-screen'); // Section padre de la vista bienvenida 
+const logIn = document.getElementById('log-in-screen'); // Section padre de la vista iniciar sesión 
+const errorWeakPassword = document.getElementById('error-message-password'); // elemento <p> para mensaje de error de password
+const errorInvalidEmail = document.getElementById('error-messase-invalid-email'); // elemento <p> para mensaje de error de email
+const errorMissingFields = document.getElementById('error-missing-fields-on-registration'); // elemento <p> para mensaje de error de campos vacios
 
 
 // Añadir evento de cambio de vista a crear nuevo usuario
 btnSingUp. addEventListener('click', () => {
   showSecondScreen();
 });
+// Añadir evento de cambio de vista a iniciar sesión
+btnLogIn.addEventListener('click', () => {
+  hideFirstScreenAndWelcome();
+  showLogInScreen();
+});
 
-// Añadir evento Creat user con correo electronico y contraseña
-btnCreateUser.addEventListener('click', e => {
+// Añadir evento crear usuario con correo electronico y contraseña
+btnSignUpWithEmailAndPassword.addEventListener('click', e => {
   e.preventDefault();
   // obtener name, email y password
   const name = nameTxt.value;
@@ -31,7 +38,7 @@ btnCreateUser.addEventListener('click', e => {
   const password = passwordTxt.value;
   if (name === '' || email === '' || password === '') {
     console.log('entro');
-    errorMissingFields.innerHTML ='Completa tus datos para ser parte de Eva.';  
+    errorMissingFields.innerHTML = 'Completa tus datos para ser parte de Eva.';  
   } else {
     const auth = firebase.auth();
     // sign Up
@@ -53,7 +60,7 @@ btnCreateUser.addEventListener('click', e => {
   };
 });
 
-// Añadir evento Crear usuario con Google
+// Añadir evento crear usuario con Google
 btnSignUpWithGoogle.addEventListener('click', e => {
   e.preventDefault();
   console.log('entro'); 
@@ -80,12 +87,47 @@ btnSignUpWithGoogle.addEventListener('click', e => {
   showWelcomeScreen();
 });
 
-// Función muestra segunda pantalla
+// Función crea template literal para iniciar sesión
+const showLogInScreen = () => {
+  const tempLogIn = 
+            `<section id="third-screen"> 
+            <h1 class="center-text">Nombre</h1>
+            <p class= "center-text">Este es el slogan</p>
+            <form>
+              <div class="container">
+                <div>
+                <h2 class= "center-text" >Iniciar sesión</h2>
+                </div>
+                <label><b>Correo electronico</b></label>
+                <input id = "email" type="email" placeholder="Ingresa un correo electronico" name="uname" >
+                <p id="error-messase-invalid-email" class="error-message"></p>
+                <label for="password"><b>Contraseña</b></label>
+                <input id="password" type="password" placeholder="Contraseña de 6 caracteres" name="psw" >
+                <p id="error-message-password" class="error-message"></p>
+                <div>
+                    <button id="button-to-log-in-with-google" type="submit">Google</button>
+                  </div>
+                <div>
+                  <button id="button-to-log-in" type="submit">Iniciar sesión</button>
+                  <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
+                </div>
+            </div>
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">¿Olvidaste tu <a href="#">contraseña?</a></span>
+              </div>
+            </form>
+        </section>
+            `;
+  window.tempLogIn += tempLogIn;
+  logIn.innerHTML = window.tempLogIn;
+};
+// Función muestra segunda vista
 const showSecondScreen = () => {
   document.getElementById('first-screen').style.display = 'none';
   document.getElementById('second-screen').style.display = 'block';
 };
-// Función esconde segunda y tercera pantalla
+// Función esconde segunda y tercera vista
 const hideFirstScreenAndWelcome = () => {
   document.getElementById('first-screen').style.display = 'none';
   document.getElementById('second-screen').style.display = 'none';
