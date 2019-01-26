@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,76 @@
   <link rel="stylesheet" href="style.css">
   <title> Feminist Social Network</title>
 </head>
+<body>
+<section id= "first-screen">
+  <div>
+    <img src="" alt="">
+  </div>
+  <div>
+    <h1>Name</h1>
+    <p>Slogan</p>
+  </div>
+  <div>
+    <button id="button-to-sign-up">¿Nuevo usuario?</button>
+    <button>Registrate</button>
+  </div>
+
+</section>
+<section id="second-screen"> 
+    <h1 class="centered-text">Nombre</h1>
+    <p class= "centered-text">Este es el slogan</p>
+     <form>
+      <div class="container">
+        <label for="uname"><b>Name</b></label>
+        <input id = "name" type="text" placeholder="Enter your name" name="uname" required> 
+        <label for="uname"><b>Correo electronico</b></label>
+        <input id = "email" type="email" placeholder="Enter correo electronico" name="uname" required>
+        <label for="psw"><b>Password</b></label>
+       <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+         <div>
+        <button id="button-to-create-new-user" type="submit">Register now</button>
+         </div>
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAKjg2pVjrBEsaBB7wOE6cY52530K5l0lM",
+    authDomain: "prototype-feminist-sn.firebaseapp.com",
+    databaseURL: "https://prototype-feminist-sn.firebaseio.com",
+    projectId: "prototype-feminist-sn",
+    storageBucket: "prototype-feminist-sn.appspot.com",
+    messagingSenderId: "401391123287"
+  };
+  firebase.initializeApp(config);
+</script>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <body>
 
     <div class="header">
@@ -20,9 +91,11 @@
      <div class="input-form">
        <input type="password" placeholder="Contraseña"></div>
 <div class="input-form"  >
-  <input type="submit" value ="Inicia sesion" class="login" ></div>
-  <p> ¿ No tienes una cuenta? <input type="submit" value ="Registrate" ></p>
+
+<button id= "btnLogin" class="login">Inicia sesion</button> 
+
+</div>
+  <p> ¿ No tienes una cuenta? <input type="submit" value ="Registrate" id="btnSignUp" ></p>
 </form>
-      <script type="module" src="main.js"></script>
-</body>
-</html>
+      <script src="main.js"  ></script>
+     -->
