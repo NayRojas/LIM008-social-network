@@ -8,10 +8,8 @@
   <title> Feminist Social Network</title>
 </head>
 <body>
+  <!-- FIRST SCREEN -->
 <section id= "first-screen">
-  <div>
-    <img src="" alt="">
-  </div>
   <div>
     <h1>Name</h1>
     <p>Slogan</p>
@@ -20,32 +18,29 @@
     <button id="button-to-sign-up">¿Nuevo usuario?</button>
     <button>Registrate</button>
   </div>
-
 </section>
+  <!-- SECOND SCREEN -->
 <section id="second-screen"> 
     <h1 class="centered-text">Nombre</h1>
-
     <p class= "centered-text">Este es el slogan</p>
-    
     <form>
-    
       <div class="container">
-    
-        <label for="uname"><b>Name</b></label>
-        <input id = "name" type="text" placeholder="Enter your name" name="uname" required> 
-    
-        <label for="uname"><b>Correo electronico</b></label>
-        <input id = "email" type="email" placeholder="Enter correo electronico" name="uname" required>
-    
-        <label for="psw"><b>Password</b></label>
-        <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+        <label><b>Name</b></label>
+        <input id = "name" type="text" placeholder="Enter your name" name="uname" > 
+        <label><b>Correo electronico</b></label>
+        <input id = "email" type="email" placeholder="Enter correo electronico" name="uname" >
+        <p id="error-messase-invalid-email"></p>
+        <label for="password"><b>Password</b></label>
+        <input id="password" type="password" placeholder="Enter Password" name="psw" >
+        <p id="error-message-password"></p>
       <div>
         <button id="button-to-create-new-user" type="submit">Register now</button>
       </div>
-        
-    
+      <div>
+        <button id="button-to-create-new-user-google" type="submit">Google</button>
       </div>
-    
+    </div>
+
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancel</button>
         <span class="psw">Forgot <a href="#">password?</a></span>
@@ -53,6 +48,8 @@
     </form>
 </section>
 
+ <!-- WELCOME SCREEN -->
+<section id="welcome-new-user-screen"></section>
 
 <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
 <script>
