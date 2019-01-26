@@ -9,6 +9,8 @@ const btnSingUp = document.getElementById('button-to-sign-up'); // Botón elige 
 const btnLogIn = document.getElementById('button-to-log-in'); // Botón Iniciar sesión
 const btnSignUpWithEmailAndPassword = document.getElementById('button-to-create-new-user'); // Botón crea nuevo usuario
 const btnSignUpWithGoogle = document.getElementById('button-to-create-new-user-google'); // Botón crea nuevo usuario con google
+const btnLogInWithEmailAndPassword = document.getElementById('button-to-create-new-user'); // Botón iniciar sesión con email y password
+const btnLogInWithGoogle = document.getElementById('button-to-create-new-user-google'); // Botón iniciar sesión con google
 const btnLogInFromSignUpForm = document.getElementById('log-in-from-create-user');// Link ir a iniciar sesión desde crear cuenta
 const btSignUpFromLogInForm = document.getElementById('sign-up-from-log-in');// Link ir a crear cuenta desde iniciar sesión
 const nameTxt = document.getElementById('name'); // Input toma valor del nombre 
@@ -94,6 +96,34 @@ btnSignUpWithGoogle.addEventListener('click', e => {
   showWelcomeScreen();
 });
 
+btnLogInWithEmailAndPassword.addEventListener('click', e => {
+  e.preventDefault();
+  // obtener email y password
+  const email = emailTxt.value;
+  const password = passwordTxt.value;
+  if (name === '' || email === '' || password === '') {
+    console.log('entro');
+    errorMissingFields.innerHTML = 'Completa tus datos para ser parte de Eva.';  
+  } else {
+    const auth = firebase.auth();
+    // sign Up
+    auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      if (errorCode === 'auth/invalid-email') {
+        errorInvalidEmail.innerHTML = '¡Hey! Ingresa un correo electronico válido';
+        console.log(errorMessage);
+      } else if (errorCode === 'auth/weak-password') {
+        errorWeakPassword.innerHTML = 'Tu contraseña debe tener 6 carácteres :)';
+        console.log(errorMessage);
+      } else {
+        hideFirstScreenAndWelcome();
+        showWelcomeScreen();
+      }
+    });
+  };
+});
 // Función crea template literal para iniciar sesión
 const showLogInScreen = () => {
   const tempLogIn = 
