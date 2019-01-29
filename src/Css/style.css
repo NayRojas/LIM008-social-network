@@ -28,6 +28,16 @@ button {
   border-radius: 3px;
 }
 
+a {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
 .btns-beside {
   width: 45%;
   transform: translateX(-15%) translateY(-%);

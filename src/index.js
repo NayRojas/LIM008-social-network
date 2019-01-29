@@ -1,5 +1,4 @@
 // Este es el punto de entrada de tu aplicacion
-
 // Estado inicial de pantallas
 document.getElementById('first-screen').style.display = 'block';
 document.getElementById('second-screen').style.display = 'none';
@@ -74,15 +73,15 @@ btnSignUpWithEmailAndPassword.addEventListener('click', e => {
 // Añadir evento crear usuario con Google
 btnSignUpWithGoogle.addEventListener('click', e => {
   e.preventDefault();
-  console.log('entro'); 
   // obtener name, email y password
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().languageCode = 'es';
   firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     let token = result.credential.accessToken;
     // The signed-in user info.
     let user = result.user;
+    hideFirstScreenAndWelcome();
+    showWelcomeScreen();
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -92,15 +91,8 @@ btnSignUpWithGoogle.addEventListener('click', e => {
     let email = error.email;
     // The firebase.auth.AuthCredential type that was used.
     let credential = error.credential;
-    try {
-      if (token === '') throw ' tu cuenta Google';
-      if (user === '') throw 'Revisa tu cuenta Google';
-    } catch (err) {
-      errorMissingFields.innerHTML = 'Revisa';
-    }
+    // ...
   });
-  hideFirstScreenAndWelcome();
-  showWelcomeScreen();
 });
 
 btnSignUpWithFacebook.addEventListener('click', e => {
@@ -207,7 +199,7 @@ const showWelcomeScreen = () => {
         <p>Eres nueva usuaria</p>
         <button id="btn-Sign-Out">Cerrar sesión</button>
         `;
-  window.tempNewUserWelcome += newUserWelcome;
+  window.tempNewUserWelcome = window.tempNewUserWelcome + newUserWelcome;
   welcome.innerHTML = window.tempNewUserWelcome;
 };
 
@@ -227,14 +219,14 @@ function showSlides() {
 }
 
 // Añadir evento para salir de sesión
-btnSignOut.addEventListener('click', e => {
-  firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-  }).catch(function(error) {
-    // An error happened.
-    console.log('Salio de sesión')
-  });
-});
+// btnSignOut.addEventListener('click', e => {
+//   firebase.auth().signOut().then(function() {
+//     // Sign-out successful.
+//   }).catch(function(error) {
+//     // An error happened.
+//     console.log('Salio de sesión')
+//   });
+// });
 import { myFunction } from './lib/index.js';
 
 myFunction();
