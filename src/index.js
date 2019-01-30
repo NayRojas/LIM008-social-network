@@ -94,10 +94,9 @@ btnSignUpWithGoogle.addEventListener('click', e => {
     // ...
   });
 });
-
+const provider = new firebase.auth.FacebookAuthProvider();
 btnSignUpWithFacebook.addEventListener('click', e => {
   e.preventDefault();
-  const provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     let token = result.credential.accessToken;
@@ -213,7 +212,9 @@ function showSlides() {
     slides[i].style.display = 'none'; 
   }
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1 } 
+  if (slideIndex > slides.length) {
+slideIndex = 1; 
+} 
   slides[slideIndex - 1].style.display = 'block'; 
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
