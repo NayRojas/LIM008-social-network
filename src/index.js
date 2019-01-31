@@ -93,29 +93,60 @@ btnSignUpWithGoogle.addEventListener('click', e => {
     let credential = error.credential;
     // ...
   });
-});
-const provider = new firebase.auth.FacebookAuthProvider();
-btnSignUpWithFacebook.addEventListener('click', e => {
-  e.preventDefault();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+// Autenticacion con Facebook
+function signUpFacebook() {
+  if(!firebase.auth().currentUser){
+    const provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('Default Public Profile Fields');
+    firebase.auth().signInWithPopup(provider).then(function(result) {
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    let token = result.credential.accessToken;
-    // The signed-in user info.
-    let user = result.user;
-    hideFirstScreenAndWelcome();
-    showWelcomeScreen();
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    // The email of the user's account used.
-    let email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    let credential = error.credential;
-    // ...
-  });
-});
+          let token = result.credential.accessToken;
+          // The signed-in user info.
+          let user = result.user;
+          hideFirstScreenAndWelcome();
+          showWelcomeScreen();
+      //     // ...
+        }).catch(function(error) {
+          // Handle Errors here.
+          let errorCode = error.code;
+          let errorMessage = error.message;
+      //     // The email of the user's account used.
+          let email = error.email;
+      //     // The firebase.auth.AuthCredential type that was used.
+          let credential = error.credential;
+          // ...
+        });
+        
+  }
+}
+
+document.getElementById('button-to-create-new-user-facebook');
+
+
+
+// });
+// const provider = new firebase.auth.FacebookAuthProvider();
+// btnSignUpWithFacebook.addEventListener('click', e => {
+//   e.preventDefault();
+//   firebase.auth().signInWithPopup(provider).then(function(result) {
+//     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+//     let token = result.credential.accessToken;
+//     // The signed-in user info.
+//     let user = result.user;
+//     hideFirstScreenAndWelcome();
+//     showWelcomeScreen();
+//     // ...
+//   }).catch(function(error) {
+//     // Handle Errors here.
+//     let errorCode = error.code;
+//     let errorMessage = error.message;
+//     // The email of the user's account used.
+//     let email = error.email;
+//     // The firebase.auth.AuthCredential type that was used.
+//     let credential = error.credential;
+//     // ...
+//   });
+// });
 btnLogInWithEmailAndPassword.addEventListener('click', e => {
   e.preventDefault();
   // obtener email y password
