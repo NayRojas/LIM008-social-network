@@ -6,3 +6,22 @@ describe('myFunction', () => {
     expect(typeof myFunction).toBe('function');
   });
 });
+
+
+describe('functionSignUpGoogle', () => {
+  it('debería ser una función', () => {
+    expect(typeof fuctionSignUpGoogle).toBe('function');
+  });
+});
+
+describe('functionSignUpFacebook', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionSignUpFacebook).toBe('function');
+  });
+});
+
+describe('functionSignUpEmail', () => {
+  it('debería ser una función', () => {
+    expect(typeof functionSignUpEmail).toBe('function');
+  });
+});

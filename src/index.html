@@ -1,103 +1,77 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="shortcut icon" type="image/png" href="Css/img/shorticon.png"/>
   <title> Feminist Social Network</title>
 </head>
 <body>
+  <!-- FIRST SCREEN -->
 <section id= "first-screen">
   <div>
-    <img src="" alt="">
+    <img src="Css/img/background1.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">
+    <!--<img src="Css/img/background2.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">
+    <img src="Css/img/background3.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">-->
   </div>
-  <div>
-    <h1>Name</h1>
-    <p>Slogan</p>
+  <div class="btn-div">
+    <button id="button-to-sign-up" class=" padding-for-btm-personalized btns-beside front-btn">¿Nuevo usuario?</button>
+    <button id="button-to-log-in" class="btns-beside front-btn">Iniciar sesión</button>
   </div>
-  <div>
-    <button id="button-to-sign-up">¿Nuevo usuario?</button>
-    <button>Registrate</button>
-  </div>
-
 </section>
+  <!-- SECOND SCREEN -->
 <section id="second-screen"> 
-    <h1 class="centered-text">Nombre</h1>
-    <p class= "centered-text">Este es el slogan</p>
-     <form>
+    <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
+    <form>
       <div class="container">
-        <label for="uname"><b>Name</b></label>
-        <input id = "name" type="text" placeholder="Enter your name" name="uname" required> 
-        <label for="uname"><b>Correo electronico</b></label>
-        <input id = "email" type="email" placeholder="Enter correo electronico" name="uname" required>
-        <label for="psw"><b>Password</b></label>
-       <input id="password" type="password" placeholder="Enter Password" name="psw" required>
-         <div>
-        <button id="button-to-create-new-user" type="submit">Register now</button>
-        <button id="btn-facebook" type="submit">Log in with Facebook</button>
-
-         </div>
-      </div>
-      <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-      </div>
+        <div class="gray-div">
+          <h2 class= "center-text">Crear cuenta</h2>
+        </div>
+        <label class="margin-top"><b>Nombre</b></label>
+        <input id = "name" class="medium-margin" type="text" placeholder="Ingresa tu nombre" name="uname" > 
+        <label class="margin-top"><b>Correo electrónico</b></label>
+        <input id = "email"  type="email" placeholder="Ingresa un correo electronico" name="uname" >
+        <p id="error-messase-invalid-email" class="error-message"></p>
+        <label for="password"><b>Contraseña</b></label>
+        <input id="password" type="password" placeholder="Contraseña de 6 caracteres" name="psw" >
+        <p id="error-message-password" class="error-message"></p>
+        <div>
+          <button id="button-to-create-new-user" type="submit">Registrate ahora</button>
+          <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
+        </div>
+        <p class="center-text short-padding">Registrate con</p>
+        <div class= "btn-div">
+          <button id="button-to-create-new-user-google" type="button" class="icon-google white-color red-back two-button btns-beside" >Google</button>
+          <button id="button-to-create-new-user-facebook" type="button" class="icon-facebook white-color blue-back two-button btns-beside" >Facebook</button>
+        </div>
+        
+    </div>
+      <p class="center-text">¿Ya tienes cuenta?, <a id="log-in-from-create-user" href="#log-in-screen">Inicia sesión.</a></p>
     </form>
 </section>
 
-<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAKjg2pVjrBEsaBB7wOE6cY52530K5l0lM",
-    authDomain: "prototype-feminist-sn.firebaseapp.com",
-    databaseURL: "https://prototype-feminist-sn.firebaseio.com",
-    projectId: "prototype-feminist-sn",
-    storageBucket: "prototype-feminist-sn.appspot.com",
-    messagingSenderId: "401391123287"
-  };
-  firebase.initializeApp(config);
-</script>
+ <!-- WELCOME SCREEN -->
+<section id="welcome-new-user-screen"></section>
+ <!-- LOG IN SCREEN -->
+ <section id="log-in-screen"></section>
 
+ <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+
+ <script>
+   // Initialize Firebase
+   var config = {
+     apiKey: "AIzaSyAZ1JdD_Y4uI21Y5cL2c0PNDLOi1xQC2V0",
+     authDomain: "social-network1-b2e89.firebaseapp.com",
+     databaseURL: "https://social-network1-b2e89.firebaseio.com",
+     projectId: "social-network1-b2e89",
+     storageBucket: "social-network1-b2e89.appspot.com",
+     messagingSenderId: "767198954108"
+   };
+   firebase.initializeApp(config);
+ </script>
   <script type="module" src="main.js"></script>
   <script type="module" src="index.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<body>
-
-    <div class="header">
-        <h2>NOMBRE </h2>
-        <h3>Slogan</h3>
-    </div>
-    
-    <form action="" method="post">
-     <div class="input-form">
-     <input type="text" placeholder="Correo electrónico "></div>
-     <div class="input-form">
-       <input type="password" placeholder="Contraseña"></div>
-<div class="input-form"  >
-
-<button id= "btnLogin" class="login">Inicia sesion</button> 
-
-</div>
-  <p> ¿ No tienes una cuenta? <input type="submit" value ="Registrate" id="btnSignUp" ></p>
-</form>
-      <script src="main.js"  ></script>
-     -->
