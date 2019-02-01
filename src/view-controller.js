@@ -1,3 +1,42 @@
+
+
+import { signIn ,signUpFacebook, signUpGoogle , addPost } from "../controller/control-firebase";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Este es el punto de entrada de tu aplicacion
 // Estado inicial de pantallas
 document.getElementById('first-screen').style.display = 'block';
