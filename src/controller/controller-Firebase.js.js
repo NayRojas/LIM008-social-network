@@ -1,32 +1,7 @@
-import { showCreateuser } from './temString.js';
-import { showLogInScreen } from './temString.js';
 
-// Estado inicial de pantallas
-document.getElementById('first-screen').style.display = 'block';
-document.getElementById('second-screen').style.display = 'none';
-
-// Constantes para manipulación del DOM
-const btnSignUpWithEmailAndPassword = document.getElementById('button-to-create-new-user'); // Botón crea nuevo usuario
-const btnSignUpWithGoogle = document.getElementById('button-to-create-new-user-google'); // Botón crea nuevo usuario con google
-const btnSignUpWithFacebook = document.getElementById('button-to-create-new-user-facebook');
-const btnLogInWithEmailAndPassword = document.getElementById('button-to-create-new-user'); // Botón iniciar sesión con email y password
-const btnLogInWithGoogle = document.getElementById('button-to-create-new-user-google'); // Botón iniciar sesión con google
-const btnLogInFromSignUpForm = document.getElementById('log-in-from-create-user');// Link ir a iniciar sesión desde crear cuenta
-const btSignUpFromLogInForm = document.getElementById('sign-up-from-log-in');// Link ir a crear cuenta desde iniciar sesión
-const nameTxt = document.getElementById('name'); // Input toma valor del nombre 
-const emailTxt = document.getElementById('email'); // Input toma valor del email 
-const passwordTxt = document.getElementById('password'); // Input toma valor del password 
-const welcome = document.getElementById('welcome-new-user-screen'); // Section padre de la vista bienvenida 
-const logIn = document.getElementById('log-in-screen'); // Section padre de la vista iniciar sesión 
-const errorWeakPassword = document.getElementById('error-message-password'); // elemento <p> para mensaje de error de password
-const errorInvalidEmail = document.getElementById('error-messase-invalid-email'); // elemento <p> para mensaje de error de email
-const errorMissingFields = document.getElementById('error-missing-fields-on-registration'); // elemento <p> para mensaje de error de campos vacios
-const btnSignOut = document.getElementById('btn-Sign-Out');
-
-
-// Añadir evento de cambio de vista a iniciar sesión
+/*
+/ aqui exportaras las funciones que necesites
 btnSingUp. addEventListener('click', () => {
-  showCreateuser();
   showSecondScreen();
 });
 // Añadir evento de cambio de vista a iniciar sesión
@@ -64,7 +39,7 @@ btnSignUpWithEmailAndPassword.addEventListener('click', e => {
     if (errorCode === 'auth/email-already-in-use') throw 'Correo ya registrado :O';       
     errorInvalidEmail.innerHTML = err + '.';
     console.log(errorMessage);
-  
+
     if (errorCode === 'auth/weak-password') throw 'Tu contraseña debe tener 6 carácteres :)';
     errorWeakPassword.innerHTML = err + '';
     console.log(errorMessage);
@@ -130,7 +105,7 @@ btnLogInWithEmailAndPassword.addEventListener('click', e => {
     const auth = firebase.auth();
     // sign Up
     auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
+    // Handle Errors here.
       let errorCode = error.code;
       let errorMessage = error.message;
       if (errorCode === 'auth/invalid-email') {
@@ -146,19 +121,19 @@ btnLogInWithEmailAndPassword.addEventListener('click', e => {
     });
   };
 });
-  
+
 // Función muestra segunda vista
 const showSecondScreen = () => {
   document.getElementById('first-screen').style.display = 'none';
   document.getElementById('second-screen').style.display = 'block';
 };
-  // Función esconde segunda y tercera vista
+// Función esconde segunda y tercera vista
 const hideFirstScreenAndWelcome = () => {
   document.getElementById('first-screen').style.display = 'none';
   document.getElementById('second-screen').style.display = 'none';
 };
-  
-  
+
+
 // Función para el slideshow
 let slideIndex = 0;
 showSlides();
@@ -174,8 +149,8 @@ function showSlides() {
   } 
   slides[slideIndex - 1].style.display = 'block'; 
   setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-  
+}*/
+
 // Añadir evento para salir de sesión
 // btnSignOut.addEventListener('click', e => {
 //   firebase.auth().signOut().then(function() {
@@ -185,3 +160,6 @@ function showSlides() {
 //     console.log('Salio de sesión')
 //   });
 // });
+
+  // Añadir evento de cambio de vista a crear nuevo usuario
+
