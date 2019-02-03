@@ -29,7 +29,7 @@ button {
 }
 
 a {
-  color: white;
+  color: blue;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -186,7 +186,7 @@ container {
 }
 
 .front-btn{
-  color: #ffffff; /* text color */
+  color: #949494; /* text color */
   display: inline-block;
   border-radius: 5px; /* square corners */
   font-weight: 400;

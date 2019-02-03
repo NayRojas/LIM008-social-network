@@ -1,13 +1,22 @@
-import {signIn} from './services/FirebaseTools.js'
-import {router} from './services/FirebaseTools.js'
+import {signUp, signUpGoogle, signUpFacebook, postContentSafe} from './services/FirebaseTools.js';
+// import {router} from './main.js';
 
+export const holaPrint = () => {
+  console.log('hello');
+};
 
-export const signInOnSubmit = () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    /*.then(() => router('/posts'))
-    .catch(() => {
+export const signUpOnSubmit = (email, password) => {
+  signUp(email, password).then(() => location.hash = '/post');
+};
 
-    });*/
+export const signUpWithGoogle = () => {
+  signUpGoogle().then(() => location.hash = '/post');
+};
+
+export const signUpWithFacebook = () => {
+  signUpFacebook().then(() => location.hash = '/post');
+};
+
+export const postContent = (postTxt) => {
+  postContentSafe(postTxt);
 };

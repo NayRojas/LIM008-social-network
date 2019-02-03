@@ -15,13 +15,13 @@ let login = {
         <input id="password" type="password" placeholder="Contraseña de 6 caracteres" name="psw" >
         <p id="error-message-password" class="error-message"></p>
         <div>
-          <button id="button-to-log-in" type="submit">Iniciar sesión</button>
+          <a href="#/post" id="button-to-log-in" type="submit">Iniciar sesión</a>
           <p class="psw right-text">¿Olvidaste tu <a href="#">contraseña?</a></p>
           <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
         </div>
         <div>
-            <button id="button-to-log-in-with-google" type="submit" class="icon-google white-color red-back two-button btns-beside">Google</button>
-            <button id="button-to-log-in-with-facebook" type="submit" class="icon-facebook white-color blue-back two-button btns-beside">Facebook</button>
+            <a href="#/post" id="button-to-log-in-with-google" type="submit" class="icon-google white-color red-back two-button btns-beside">Google</button>
+            <a href="#/post" id="button-to-log-in-with-facebook" type="submit" class="icon-facebook white-color blue-back two-button btns-beside">Facebook</button>
           </div>
         
     </div>
