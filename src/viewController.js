@@ -1,5 +1,4 @@
-import {signUp, signUpGoogle, signUpFacebook, postContentSafe} from './services/FirebaseTools.js';
-// import {router} from './main.js';
+import {signUp, signUpGoogle, signUpFacebook, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
 
 export const holaPrint = () => {
   console.log('hello');
@@ -20,3 +19,9 @@ export const signUpWithFacebook = () => {
 export const postContent = (postTxt) => {
   postContentSafe(postTxt);
 };
+
+export const postContentLs = async() => {
+  let result = await obtenerDatosFirebase();
+  console.log('Estos con los Post del usuario:', result);
+};
+
