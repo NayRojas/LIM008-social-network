@@ -61,25 +61,16 @@ export const postContentSafe = (postTxt) =>
     state: false
   });
 
-    
 export const obtenerDatosFirebase = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      firebase.firestore().collection('Posts')
-      // onSnapShot es un metodo de firebase para tomar una foto de la data
-        .onSnapshot((querySnapshot) => {
-          const data = [];
-          // querySnapshot contiene los resultados de una consulta, en este caso de la colección a la cual de estoy haciendo onSnapShot
-          querySnapshot.forEach((doc) => {
-            let postData = (doc.data().descripcion);
-            // rellena el array data con el id del doc consultado y si data completa 
-            data.push({ id: doc.id, ...doc.data() });
-          });
-        // para retornarlo con un callback
-        }).then((response) => { 
-          resolve(response);
-        }, 2000);
+  const data = [];
+  firebase.firestore().collection('Posts')
+    // onSnapShot es un metodo de firebase para tomar una foto de la data
+    .onSnapshot((querySnapshot) => {
+      // querySnapshot contiene los resultados de una consulta, en este caso de la colección a la cual de estoy haciendo onSnapShot
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+          // rellena el array data con el id del doc consultado y si data completa 
+      });
     });
-  });
+    return data;
 };
-

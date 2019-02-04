@@ -20,8 +20,8 @@ export const postContent = (postTxt) => {
   postContentSafe(postTxt);
 };
 
-export const postContentLs = async() => {
-  let result = await obtenerDatosFirebase();
-  console.log('Estos con los Post del usuario:', result);
+export const postContentLs = () => {
+  return obtenerDatosFirebase();
 };
+
 

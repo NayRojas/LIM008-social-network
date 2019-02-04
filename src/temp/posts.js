@@ -16,8 +16,12 @@ let posts = {
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
       let postTxt = document.getElementById('post-content').value;
       postContent(postTxt);
-      let listOfPosts = postContentLs();
-      document.getElementById('post-content-list').innerHTML = listOfPosts;
+      document.getElementById('post-content').value = '';
+      let test = postContentLs();
+      for (let [key, value] of test) {
+        console.log(key, value);
+    }
+
     });
   }
         
