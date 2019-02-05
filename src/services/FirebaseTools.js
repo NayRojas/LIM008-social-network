@@ -93,3 +93,15 @@ export const obtenerDatosFirebase = (callback) => {
       
     });
 };
+
+export const signOut = () => {
+  firebase.auth().signOut().then(() => {
+    console.log('Signed Out');
+  }).catch(function(error) {
+    console.log(error, 'Signed Out');
+  });
+};
+
+export const deletePost = (postId) => {
+  firebase.firestore().collection('Posts').doc(postId).delete();
+};

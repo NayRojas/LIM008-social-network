@@ -1,4 +1,4 @@
-import { postContent, postContentLs } from '../viewController.js';
+import { postContent, postContentLs, signOutFromSession } from '../viewController.js';
 // import { postContentList } from '../services/FirebaseTools.js';
 
 let posts = {
@@ -7,7 +7,7 @@ let posts = {
     <p>¡Eres nueva usuaria!</p>
     <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
     <a id="btn-to-pots-content">Publicar</a>
-    <button id="btn-Sign-Out">Cerrar sesión</button>
+    <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
     <span id="post-content-list" type="text"></span>
     `;
     return view;
@@ -19,11 +19,6 @@ let posts = {
     <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>`;
   },
   after_render: () => {
-    // let test = postContentLs();
-    /*test.forEach(row => {
-      const html = posts.applyTemplate({id: row.id, ...row.data()});
-      document.querySelector('#post-content-list').innerHTML += html;
-    });*/
     const pintar = (arrPosts) => {
       document.querySelector('#post-content-list').innerHTML = '';
       arrPosts.forEach(row => {
@@ -36,6 +31,10 @@ let posts = {
       let postTxt = document.getElementById('post-content').value;
       postContent(postTxt);
       document.getElementById('post-content').value = '';
+    });
+    document.getElementById('btn-Sign-Out').addEventListener('click', () => {
+      console.log('entro al evento')
+      signOutFromSession();
     });
   }
 };
@@ -60,5 +59,5 @@ export default posts;
 //      postContent(postTxt);
 //    });
 //  }
-//        
+
 // };
