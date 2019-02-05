@@ -54,9 +54,13 @@ export const signUpFacebook = () =>
       console.log(email);
     }
   });
-  
+
+
+
+
 export const postContentSafe = (postTxt, uidUser) => 
   firebase.firestore().collection('Posts').add({
+    uidUser: firebase.auth().currentUser.uid,
     descripcion: postTxt,
     state: false
   });
