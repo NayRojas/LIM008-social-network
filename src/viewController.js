@@ -1,4 +1,4 @@
-import {signUp, signUpGoogle, signUpFacebook, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
+import {signUp, signUpGoogle, signUpFacebook, signIn, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
 
 export const holaPrint = () => {
   console.log('hello');
@@ -14,6 +14,10 @@ export const signUpWithGoogle = () => {
 
 export const signUpWithFacebook = () => {
   signUpFacebook().then(() => location.hash = '/post');
+};
+
+export const signInOnSubmit = (email, password) => {
+  signIn(email, password).then(() => location.hash = '/post');
 };
 
 export const postContent = (postTxt) => {

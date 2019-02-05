@@ -55,8 +55,23 @@ export const signUpFacebook = () =>
     }
   });
 
-
-
+export const signIn = (email, password) => 
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .catch(function(e) {
+      let errorCode = e.code;
+      let errorMessage = e.message;
+      console.log(errorMessage);
+      if (errorCode === 'auth/invalid-email') {
+        document.getElementById('error-messase-invalid-email').innerHTML = '¡Hey! Ingresa un correo electronico válido';
+        throw new Error(errorMessage);
+      } else if (errorCode === 'auth/wrong-password') {
+        document.getElementById('error-message-password').innerHTML = 'Tu contraseña es incorrecta :(';
+        throw new Error(errorMessage);
+      } else if (errorCode === 'auth/user-not-found') { 
+        document.getElementById('error-messase-invalid-email').innerHTML = '¡Ups! Este correo no esta registrado';
+        throw new Error(errorMessage);
+      }
+    });
 
 export const postContentSafe = (postTxt, uidUser) => 
   firebase.firestore().collection('Posts').add({
