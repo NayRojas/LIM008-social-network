@@ -55,22 +55,22 @@ export const signUpFacebook = () =>
     }
   });
   
-export const postContentSafe = (postTxt) => 
+export const postContentSafe = (postTxt, uidUser) => 
   firebase.firestore().collection('Posts').add({
     descripcion: postTxt,
     state: false
   });
 
-export const obtenerDatosFirebase = () => {
-  const data = [];
+export const obtenerDatosFirebase = (callback) => {
+  console.log(callback);
   firebase.firestore().collection('Posts')
-    // onSnapShot es un metodo de firebase para tomar una foto de la data
-    .onSnapshot((querySnapshot) => {
-      // querySnapshot contiene los resultados de una consulta, en este caso de la colección a la cual de estoy haciendo onSnapShot
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
-          // rellena el array data con el id del doc consultado y si data completa 
+    .onSnapshot(function(querySnapshot) {
+      const posts = [];
+      querySnapshot.forEach(function(doc) {
+        posts.push({id: doc.id,...doc.data()});
       });
+      callback(posts);
+      // console.log(posts);
+      
     });
-    return data;
 };
