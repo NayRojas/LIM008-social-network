@@ -26,9 +26,9 @@ export const signOutFromSession = () => {
 
 // Funciones del muro de publicaciones
 // editar
-export const editPostInWall = (rowId) => {
+export const editPostInWall = (rowId, inputValue) => {
   console.log('Entro al view-controller')
-  editPost(rowId);
+  editPost(rowId, inputValue);
 };
 // Sacar coleccion de posts de firebase
 export const postContent = (postTxt) => {

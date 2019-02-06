@@ -22,33 +22,35 @@ let posts = {
   after_render: () => {
     const pintar = (arrPosts) => {
       document.querySelector('#post-content-list').innerHTML = '';
-      const uidUserLogueado = firebase.auth().currentUser.uid;
+      // const uidUserLogueado = firebase.auth().currentUser.uid;
       arrPosts.forEach(row => {
         const html = posts.applyTemplate(row);
         document.querySelector('#post-content-list').innerHTML += html;
       });
-      const botones = document.querySelectorAll('.btn-edit')
-      const botonesGuardar = document.querySelectorAll('.btn-save')
-
+      const botonesEditar = document.querySelectorAll('.btn-edit');
+      const botonesGuardar = document.querySelectorAll('.btn-save');
+// Evento para guardar posts
       botonesGuardar.forEach((botonGuardar) => {
+        const id = botonGuardar.dataset.id;
         botonGuardar.addEventListener('click', () => {
-          const id = botonGuardar.dataset.id;
+          document.getElementById(`btn-save-content-${id}`).classList.add('ocultar-post');
+          document.getElementById(`btn-to-edit-content-${id}`).classList.remove('ocultar-post');
           const inputValue = document.getElementById(`input-${id}`).value;
           console.log(inputValue);
+          editPost(id, inputValue);
         });
-      })
-      botones.forEach((boton) => {
+      });
+// Evento para editar posts
+      botonesEditar.forEach((boton) => {
         boton.addEventListener('click', () => {
-        const id = boton.dataset.id;
-        document.getElementById(`input-${id}`).classList.remove('ocultar-post');
-        document.getElementById(id).classList.add('ocultar-post');
-        document.getElementById(`btn-save-content-${id}`).classList.remove('ocultar-post');
-        document.getElementById(`btn-to-edit-content-${id}`).classList.add('ocultar-post');
+          const id = boton.dataset.id;
+          document.getElementById(`input-${id}`).classList.remove('ocultar-post');
+          document.getElementById(id).classList.add('ocultar-post');
+          document.getElementById(`btn-save-content-${id}`).classList.remove('ocultar-post');
+          document.getElementById(`btn-to-edit-content-${id}`).classList.add('ocultar-post');
         // editPostInWall(id);
-       });
-      })
-    
-      //
+        });
+      });
     };
     postContentLs(pintar);
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {

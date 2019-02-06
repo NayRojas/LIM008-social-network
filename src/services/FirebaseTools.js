@@ -109,11 +109,10 @@ export const signOut = () => {
     });
 };
 
-export const editPost = (postId) => {
-
-  firebase.firestore().collection('Posts').doc(postId).set({
-    
-    // acá debería poder guardar el post editado con su mismo id
+export const editPost = (postId, inputValue) => {
+  let currentPost = firebase.firestore().collection('Posts').doc(postId);
+  currentPost.update({
+    descripcion: inputValue,
   });
 };
 
