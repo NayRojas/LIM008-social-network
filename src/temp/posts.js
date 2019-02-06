@@ -1,5 +1,27 @@
-import { postContent, postContentLs, signOutFromSession } from '../viewController.js';
+import { postContent, postContentLs, deletePostOnClick, signOutFromSession , } from '../viewController.js';
+// import { deletePost } from '../services/FirebaseTools.js';
 // import { postContentList } from '../services/FirebaseTools.js';
+
+
+const toDelete = (eachPost) => {
+  const liElement = document.createElement('li');
+  liElement.classList.add('mdl-list__item');
+  liElement.innerHTML = `
+    <span class="post-content-list">
+      // <span>${eachPost.title}</span>
+    </span>
+    <a class="mdl-list__item-secondary-action" id="btn-to-delete-content${eachPost.id}">
+      <i class="material-icons">delete</i>
+    </a>
+  `;
+  // agregando evento de click al btn eliminar una nota
+  liElement.querySelector(`#btn-deleted-${eachPost.id}`)
+    .addEventListener('click', () => deletePostOnClick(eachPost));
+  return liElement;
+}
+
+
+
 
 let posts = {
   render: async(postInputValue) => {
@@ -30,16 +52,24 @@ let posts = {
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
       let postTxt = document.getElementById('post-content').value;
       postContent(postTxt);
+    
       document.getElementById('post-content').value = '';
     });
-    document.getElementById('btn-Sign-Out').addEventListener('click', () => {
-      console.log('entro al evento')
-      signOutFromSession();
-    });
+   
   }
-};
+    // document.getElementById('btn-Sign-Out').addEventListener('click', () => {
+    //   // console.log('entro al evento')
+    //   signOutFromSession();
+    // });
+  }
+// };
 
 export default posts;
+
+
+
+
+
 
 // export let postsList = {
 //  render: async(postInputValue) => {

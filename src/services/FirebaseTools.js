@@ -112,14 +112,14 @@ export const signInGoogle = () =>
       console.log(email);
     }
   });
+  
+export const deletePost = (postId) => {
+  firebase.firestore().collection('Posts').doc(postId).delete();
+};
 
 export const signOut = () => {
   firebase.auth().signOut().then(() => location.hash = '/login')
   .catch(function(error) {
     console.log(error, 'Signed Out');
   });
-};
-
-export const deletePost = (postId) => {
-  firebase.firestore().collection('Posts').doc(postId).delete();
 };

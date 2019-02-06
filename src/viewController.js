@@ -1,4 +1,4 @@
-import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, signOut, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
+import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, deletePost, signOut, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
 
 export const signUpOnSubmit = (email, password) => {
   signUp(email, password).then(() => location.hash = '/post');
@@ -19,6 +19,9 @@ export const signInWithGoogle = () => {
   signInGoogle().then(() => location.hash = '/post');
 };
 
+export const deletePostOnClick = (eachNote) => 
+deletePost(eachNote.id);
+
 export const signOutFromSession = () => {
   signOut();
 };
@@ -31,22 +34,10 @@ export const postContentLs = (callback) => {
   obtenerDatosFirebase(callback);
 };
 
-export const deletePostsByUid = (uid) => {
-  deletePost(uid);
-};
 
-/* export const postContentLs = (postContentAll) => {
-  let postsList = (postContentAll) => {
-    let view = `
-    <div>
-    <span id="post-content" type="text">${postContentAll}</span>
-    <a id="btn-to-delete-content">Eliminar</a>
-    <a id="btn-to-edit-content">Editar</a>
-    <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>
-    </div>
-    `;
-    document.getElementById('post-content-list').innerHTML = view;
-  };
-  return*/
 
+
+// export const deletePostsByUid = (uid) => {
+//   deletePost(uid);
+// };
 
