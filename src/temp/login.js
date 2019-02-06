@@ -1,4 +1,4 @@
-import { signInOnSubmit } from '../viewController.js';
+import { signInOnSubmit , signInWithGoogle} from '../viewController.js';
 
 let login = {
   render: async() => {
@@ -42,8 +42,9 @@ let login = {
         signInOnSubmit(email, password);
       }
     });
-
-    
+    document.getElementById('button-to-log-in-with-google').addEventListener('click', () => {
+      signInWithGoogle();
+    });
   }
 };
 
