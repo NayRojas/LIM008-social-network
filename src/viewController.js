@@ -17,7 +17,7 @@ export const signInOnSubmit = (email, password) => {
 };
 
 export const signOutFromSession = () => {
-  signOut().then(() => location.hash = '/login');
+  signOut();
 };
 
 export const postContent = (postTxt) => {

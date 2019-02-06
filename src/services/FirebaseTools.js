@@ -77,6 +77,7 @@ export const postContentSafe = (postTxt, uidUser) =>
   firebase.firestore().collection('Posts').add({
     uidUser: firebase.auth().currentUser.uid,
     descripcion: postTxt,
+    likes: 0,
     state: false
   });
 
@@ -95,9 +96,8 @@ export const obtenerDatosFirebase = (callback) => {
 };
 
 export const signOut = () => {
-  firebase.auth().signOut().then(() => {
-    console.log('Signed Out');
-  }).catch(function(error) {
+  firebase.auth().signOut().then(() => location.hash = '/login')
+  .catch(function(error) {
     console.log(error, 'Signed Out');
   });
 };
