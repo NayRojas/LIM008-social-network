@@ -2,7 +2,7 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
+.auth input[type=text], input[type=password], input[type=email] {
   width: 90%;
   padding: 6px 2px;
   margin: 5px 0 10px 0;
@@ -213,3 +213,10 @@ container {
   text-align: right;
 }
 
+.ocultar-post {
+  display: none;
+}
+
+.mostrar-post {
+  display: block;
+}

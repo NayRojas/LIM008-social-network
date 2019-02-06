@@ -1,10 +1,10 @@
-import { signInOnSubmit } from '../viewController.js';
+import { signInOnSubmit, signInWithFacebook } from '../viewController.js';
 
 let login = {
   render: async() => {
     let view = `
     <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
-    <form>
+    <form class="auth">
       <div class="container">
         <div>
         <h2 class= "center-text" >Iniciar sesión</h2>
@@ -41,7 +41,10 @@ let login = {
       // sign In
         signInOnSubmit(email, password);
       }
-    });
+    })
+    document.getElementById('button-to-log-in-with-facebook').addEventListener('click', () => {
+      signInWithFacebook();
+    })
   }
 };
 

@@ -73,6 +73,14 @@ export const signIn = (email, password) =>
       }
     });
 
+export const signInFacebook = () => {
+  firebase.auth().signInWithPopup(facebookProvider).then(() => location.hash = '/login')
+    .catch(function(error) {
+      let errorMessage = error.message;
+      console.log(errorMessage);
+    });
+};
+
 export const postContentSafe = (postTxt, uidUser) => 
   firebase.firestore().collection('Posts').add({
     uidUser: firebase.auth().currentUser.uid,
@@ -87,21 +95,25 @@ export const obtenerDatosFirebase = (callback) => {
     .onSnapshot(function(querySnapshot) {
       const posts = [];
       querySnapshot.forEach(function(doc) {
-        posts.push({id: doc.id,...doc.data()});
+        posts.push({id: doc.id, ...doc.data()});
       });
       callback(posts);
       // console.log(posts);
-      
+    });
+};
+// ver las llaves
+export const signOut = () => {
+  firebase.auth().signOut().then(() => location.hash = '/login')
+    .catch(function(error) {
+      console.log(error, 'Signed Out');
     });
 };
 
-export const signOut = () => {
-  firebase.auth().signOut().then(() => location.hash = '/login')
-  .catch(function(error) {
-    console.log(error, 'Signed Out');
+export const editPost = (postId) => {
+
+  firebase.firestore().collection('Posts').doc(postId).set({
+    
+    // acá debería poder guardar el post editado con su mismo id
   });
 };
 
-export const deletePost = (postId) => {
-  firebase.firestore().collection('Posts').doc(postId).delete();
-};
