@@ -1,47 +1,30 @@
-// Este es el punto de entrada de tu aplicacion
 
-// import { myFunction } from './lib/index.js';
+import initPage from './temp/initialpage.js';
+import register from './temp/register.js';
+import login from './temp/login.js';
+import post from './temp/posts.js';
+import Utils from './services/Utils.js';
+import Error404 from './temp/error404.js';
+// import FirebaseTools from './services/FirebaseTools.js';
 
-// myFunction();
 
-import iniPageTemplate from './templates/initialpage.js'
-import {secondPsge} from './templates/initialpage.js'
-
-const firebaseInit = () => {
-// Initialize Firebase
-  const config = {
-    apiKey: 'AIzaSyAZ1JdD_Y4uI21Y5cL2c0PNDLOi1xQC2V0',
-    authDomain: 'social-network1-b2e89.firebaseapp.com',
-    databaseURL: 'https://social-network1-b2e89.firebaseio.com',
-    projectId: 'social-network1-b2e89',
-    storageBucket: 'social-network1-b2e89.appspot.com',
-    messagingSenderId: '767198954108'
-  };
-  firebase.initializeApp(config);
+const routes = {
+  '/': initPage
+  , '/register': register
+  , '/login': login
+  , '/post': post
 };
 
-const changeTmp = (hash) => {
-  if (hash === '#/' || hash === '' || hash === '#') {
-    iniPageTemplate();
-  } else if (hash === '#/secondHome') {
-    secondPsge();
-  } else {
-    return viewTmp('#/different');  
-  }
-}
- 
-const viewTmp = (routers) => {
-  const router = routers.substr(2, routers.length - 2)
-  const container = document.getElementById("container")
-  //container.innerHTML = objTemp[router];
-}
-
-const doInit = () => {
-  firebaseInit();
-  iniPageTemplate();
+export const router = async(externalResource = null) => {
+  const container = document.getElementById('container');
+  container.innerHTML = await initPage.render();
+  await initPage.after_render();
+  let request = Utils.parseRequestURL();
+  let currentURL = (request.resource ? '/' + request.resource : '/');
+  let currentPage = routes[currentURL] ? routes[currentURL] : Error404;
+  container.innerHTML = await currentPage.render();
+  await currentPage.after_render();
 };
 
-
-window.addEventListener('load', changeTmp(window.location.hash))
-if (("onhashchange" in window)) window.onhashchange = () => changeTmp(window.location.hash)
-
+window.addEventListener('hashchange', router);
+window.addEventListener('load', router);

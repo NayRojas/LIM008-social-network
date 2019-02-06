@@ -1,4 +1,3 @@
-
 // Firebase functions
 export const signUp = (email, password) => 
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -18,7 +17,6 @@ export const signUp = (email, password) =>
       }
     });
 
-    
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 export const signUpGoogle = () => 
   firebase.auth().signInWithPopup(googleProvider).then(function(result) {
@@ -75,24 +73,6 @@ export const signIn = (email, password) =>
       }
     });
 
-    export const signInGoogle = () => 
-    firebase.auth().signInWithPopup(googleProvider).then(function(result) {
-      // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      let token = result.credential.accessToken;
-      // The signed-in user info.
-      let user = result.user;
-      // ...
-    }).catch(function(error) {
-      // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      let email = error.email;
-      let credential = error.credential;
-      if (errorCode === 'auth/account-exists-with-different-credential') {
-        console.log(email);
-      }
-    });
-  
 export const postContentSafe = (postTxt, uidUser) => 
   firebase.firestore().collection('Posts').add({
     uidUser: firebase.auth().currentUser.uid,
