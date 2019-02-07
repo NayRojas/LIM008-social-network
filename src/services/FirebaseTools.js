@@ -112,14 +112,22 @@ export const signInGoogle = () =>
       console.log(email);
     }
   });
-  
+// Función para eliminar un post desde Firebase
 export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete();
 };
 
+// Función para salir de sesión 
 export const signOut = () => {
   firebase.auth().signOut().then(() => location.hash = '/login')
-  .catch(function(error) {
-    console.log(error, 'Signed Out');
+    .catch(function(error) {
+      console.log(error, 'Signed Out');
+    });
+};
+// Función para editar un post 
+export const editPost = (postId, inputValue) => {
+  let currentPost = firebase.firestore().collection('Posts').doc(postId);
+  currentPost.update({
+    descripcion: inputValue,
   });
 };
