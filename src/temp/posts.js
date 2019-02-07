@@ -1,11 +1,12 @@
 import { postContent, postContentLs, signOutFromSession, editPostInWall } from '../viewController.js';
-import { editPost } from '../services/FirebaseTools.js';
+// import { editPost } from '../services/FirebaseTools.js';
 
 let posts = {
   render: async(postInputValue) => {
     let view = `<h1>Bienvenido </h1>
     <p>¡Eres nueva usuaria!</p>
     <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
+    <p id="error-empty-input" class="error-message"></p>
     <a id="btn-to-pots-content">Publicar</a>
     <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
     <span id="post-content-list" type="text"></span>
@@ -13,18 +14,20 @@ let posts = {
     return view;
   },
   applyTemplate: (row, uidUser) => {
+    const uidUserLogueado = firebase.auth().currentUser.uid;
     return `<li id= "${row.id}">${row.descripcion}</li>
     <input id="input-${row.id}" type="text" value="${row.descripcion}" class="ocultar-post">
-    <a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>
+    ${uidUserLogueado ? '<a id="btn-to-delete-content" class="btn-delete">Eliminar</a>' : null }
+    ${uidUserLogueado ? '<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class="btn-edit">Editar</a>' : null }
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
     <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>`;
   },
   after_render: () => {
-    const pintar = (arrPosts) => {
+    const pintar = (arrPosts, uid) => {
       document.querySelector('#post-content-list').innerHTML = '';
-      // const uidUserLogueado = firebase.auth().currentUser.uid;
+      const uidUserLogueado = firebase.auth().currentUser.uid;
       arrPosts.forEach(row => {
-        const html = posts.applyTemplate(row);
+        const html = posts.applyTemplate(row, uidUserLogueado);
         document.querySelector('#post-content-list').innerHTML += html;
       });
       const botonesEditar = document.querySelectorAll('.btn-edit');
@@ -36,8 +39,8 @@ let posts = {
           document.getElementById(`btn-save-content-${id}`).classList.add('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.remove('ocultar-post');
           const inputValue = document.getElementById(`input-${id}`).value;
-          console.log(inputValue);
-          editPost(id, inputValue);
+            console.log(inputValue);
+            editPostInWall(id, inputValue);
         });
       });
 // Evento para editar posts
@@ -54,9 +57,16 @@ let posts = {
     };
     postContentLs(pintar);
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
-      let postTxt = document.getElementById('post-content').value;
-      postContent(postTxt);
-      document.getElementById('post-content').value = '';
+      const inputValue = document.getElementById('post-content').value;
+      // validación de input vacio
+      if (inputValue !== '') {
+        let postTxt = document.getElementById('post-content').value;
+        postContent(postTxt);
+        document.getElementById('post-content').value = '';
+      } else {
+        document.getElementById('btn-to-pots-content').classList.add('remove-link');
+        document.getElementById('error-empty-input').innerHTML = 'Escribe una publicación';
+      }
     });
     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
       console.log('entro al evento');

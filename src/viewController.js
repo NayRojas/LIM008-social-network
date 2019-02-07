@@ -21,7 +21,7 @@ export const signInWithFacebook = () => {
 
 // Funciones de salir de sesión
 export const signOutFromSession = () => {
-  signOut();
+  signOut().then(() => location.hash = '/login');
 };
 
 // Funciones del muro de publicaciones

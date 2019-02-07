@@ -220,3 +220,7 @@ container {
 .mostrar-post {
   display: block;
 }
+
+.remove-link {
+  text-decoration: none;
+}

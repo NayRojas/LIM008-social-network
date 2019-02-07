@@ -38,22 +38,15 @@ export const signUpGoogle = () =>
 
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 export const signUpFacebook = () => 
-  firebase.auth().signInWithPopup(facebookProvider).then(function(result) {
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    let token = result.credential.accessToken;
-    // The signed-in user info.
-    let user = result.user;
-    // ...
-  }).catch(function(error) {
+  firebase.auth().signInWithPopup(facebookProvider).then(() => location.hash = '/login')
+    .catch(function(error) {
     // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
-    if (errorCode === 'auth/account-exists-with-different-credential') {
-      console.log(email);
-    }
-  });
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        console.log(errorMessage);
+      }
+    });
 
 export const signIn = (email, password) => 
   firebase.auth().signInWithEmailAndPassword(email, password)
@@ -73,13 +66,12 @@ export const signIn = (email, password) =>
       }
     });
 
-export const signInFacebook = () => {
-  firebase.auth().signInWithPopup(facebookProvider).then(() => location.hash = '/login')
-    .catch(function(error) {
-      let errorMessage = error.message;
-      console.log(errorMessage);
-    });
-};
+export const signInFacebook = () => 
+  firebase.auth().signInWithPopup(facebookProvider).then(() => location.hash = '/post')
+  .catch(function(error) {
+    let errorMessage = error.message;
+    console.log(errorMessage);
+  });
 
 export const postContentSafe = (postTxt, uidUser) => 
   firebase.firestore().collection('Posts').add({
@@ -101,13 +93,13 @@ export const obtenerDatosFirebase = (callback) => {
       // console.log(posts);
     });
 };
-// ver las llaves
-export const signOut = () => {
-  firebase.auth().signOut().then(() => location.hash = '/login')
+
+export const signOut = () => 
+  firebase.auth().signOut()
     .catch(function(error) {
       console.log(error, 'Signed Out');
     });
-};
+
 
 export const editPost = (postId, inputValue) => {
   let currentPost = firebase.firestore().collection('Posts').doc(postId);

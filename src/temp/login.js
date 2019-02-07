@@ -21,8 +21,8 @@ let login = {
           <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
         </div>
         <div>
-            <a  id="button-to-log-in-with-google" type="button" class="icon-google white-color red-back two-button btns-beside">Google</button>
-            <a  id="button-to-log-in-with-facebook" type="button" class="icon-facebook white-color blue-back two-button btns-beside">Facebook</button>
+            <a id="button-to-log-in-with-google" type="button" class="icon-google white-color red-back two-button btns-beside">Google</button>
+            <a id="button-to-log-in-with-facebook" type="button" class="icon-facebook white-color blue-back two-button btns-beside">Facebook</button>
           </div>
         
     </div>
