@@ -1,7 +1,6 @@
 import { postContent, postContentLs, signOutFromSession , } from '../viewController.js';
 import { editPost, deletePost } from '../services/FirebaseTools.js';
 
-
 let posts = {
   render: async(postInputValue) => {
     let view = `<h1>Bienvenido </h1>
@@ -13,10 +12,10 @@ let posts = {
     `;
     return view;
   },
-  applyTemplate: (row,uidUser) => {
+  applyTemplate: (row, uidUser) => {
     return `<li id= "${row.id}">${row.descripcion}</li>
     <input id="input-${row.id}" type="text" value="${row.descripcion}" class="ocultar-post">
-    <a id="btn-to-delete-content-${row.id}" data-id"${row.id}"  class='btn-delete'>Eliminar</a>
+    <a id="btn-to-delete-content-${row.id}" data-id"${row.id}" class='btn-delete'>Eliminar</a>
     <a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
     <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>`;
@@ -28,10 +27,9 @@ let posts = {
         const html = posts.applyTemplate(row);
         document.querySelector('#post-content-list').innerHTML += html;
       });
-      const buttonDelete = document.querySelectorAll('.btn-delete');
-      const botonesEditar = document.querySelectorAll('.btn-edit');
+          const botonesEditar = document.querySelectorAll('.btn-edit');
       const botonesGuardar = document.querySelectorAll('.btn-save');
-// Evento para guardar posts
+      const buttonDelete = document.querySelectorAll('.btn-delete');
 botonesGuardar.forEach((botonGuardar) => {
   const id = botonGuardar.dataset.id;
   botonGuardar.addEventListener('click', () => {
@@ -42,6 +40,35 @@ botonesGuardar.forEach((botonGuardar) => {
     editPost(id, inputValue);
   });
 });
+
+<div id="miModal" class="modal">
+ <div class="flex" id="flex">
+<div class="modal-header flex">
+<h2>MENSAJE</h2>
+<p>¿Estás seguro que deseas eliminar?</p>
+<a id="btn-delete-sure" type="button" > Aceptar</a>
+</div>
+ </div>
+    </div>
+
+
+
+// Evento para modal al eliminar un post 
+buttonDelete.forEach((btn) => {
+btn.addEventListener('click', () => {
+  console.log('está entrando ');
+// const id = btn.dataset.id;
+let modalDelete = ` 
+<h1>¿Estás seguro que deseas eliminar? </h1>
+    <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
+    <a id="btn-to-pots-content">Publicar</a>
+    <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
+    <span id="post-content-list" type="text"></span>
+    `;
+
+});
+});
+
 // Evento para editar posts
 botonesEditar.forEach((boton) => {
   boton.addEventListener('click', () => {
@@ -53,14 +80,6 @@ botonesEditar.forEach((boton) => {
   // editPostInWall(id);
   });
 });
-buttonDelete.forEach((button) => {
-
-button.addEventListener('click', () => {
-  const id = button.dataset.id;
-  document.getElementById(`btn-to-delete-content-${id}`);
- deletePost(id);
-})
- })
 };
 postContentLs(pintar);
 document.getElementById('btn-to-pots-content').addEventListener('click', () => {
