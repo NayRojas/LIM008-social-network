@@ -113,6 +113,7 @@ export const signInGoogle = () =>
     }
   });
 // Función para eliminar un post desde Firebase
+
 export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete();
 };

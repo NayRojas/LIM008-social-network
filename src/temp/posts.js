@@ -15,8 +15,7 @@ let posts = {
   applyTemplate: (row, uidUser) => {
     return `<li id= "${row.id}">${row.descripcion}</li>
     <input id="input-${row.id}" type="text" value="${row.descripcion}" class="ocultar-post">
-    <a id="btn-to-delete-content-${row.id}" data-id"${row.id}" class='btn-delete'>Eliminar</a>
-    <a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>
+    <a id="btn-to-delete-content-${row.id}" data-id ="${row.id}" class='btn-delete'>Eliminar</a>    <a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
     <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>`;
   },
@@ -29,7 +28,8 @@ let posts = {
       });
           const botonesEditar = document.querySelectorAll('.btn-edit');
       const botonesGuardar = document.querySelectorAll('.btn-save');
-      const buttonDelete = document.querySelectorAll('.btn-delete');
+      const buttonsDelete = document.querySelectorAll('.btn-delete');
+      // Evento para guardar un post
 botonesGuardar.forEach((botonGuardar) => {
   const id = botonGuardar.dataset.id;
   botonGuardar.addEventListener('click', () => {
@@ -40,34 +40,14 @@ botonesGuardar.forEach((botonGuardar) => {
     editPost(id, inputValue);
   });
 });
+buttonsDelete.forEach((buttonDelete) => {
+  const id = buttonDelete.dataset.id;
+  buttonDelete.addEventListener('click', () => {
+    document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
+deletePost(id);
+})
 
-<div id="miModal" class="modal">
- <div class="flex" id="flex">
-<div class="modal-header flex">
-<h2>MENSAJE</h2>
-<p>¿Estás seguro que deseas eliminar?</p>
-<a id="btn-delete-sure" type="button" > Aceptar</a>
-</div>
- </div>
-    </div>
-
-
-
-// Evento para modal al eliminar un post 
-buttonDelete.forEach((btn) => {
-btn.addEventListener('click', () => {
-  console.log('está entrando ');
-// const id = btn.dataset.id;
-let modalDelete = ` 
-<h1>¿Estás seguro que deseas eliminar? </h1>
-    <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
-    <a id="btn-to-pots-content">Publicar</a>
-    <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
-    <span id="post-content-list" type="text"></span>
-    `;
-
-});
-});
+})
 
 // Evento para editar posts
 botonesEditar.forEach((boton) => {
@@ -96,3 +76,30 @@ signOutFromSession();
 
 export default posts;
 
+// <div id="miModal" class="modal">
+//  <div class="flex" id="flex">
+// <div class="modal-header flex">
+// <h2>MENSAJE</h2>
+// <p>¿Estás seguro que deseas eliminar?</p>
+// <a id="btn-delete-sure" type="button" > Aceptar</a>
+// </div>
+//  </div>
+//     </div>
+
+
+
+// Evento para modal al eliminar un post 
+// buttonDelete.forEach((btn) => {
+// btn.addEventListener('click', () => {
+//   console.log('está entrando ');
+// // const id = btn.dataset.id;
+// let modalDelete = ` 
+// <h1>¿Estás seguro que deseas eliminar? </h1>
+//     <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
+//     <a id="btn-to-pots-content">Publicar</a>
+//     <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
+//     <span id="post-content-list" type="text"></span>
+//     `;
+
+// });
+// });
