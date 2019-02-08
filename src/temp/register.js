@@ -4,11 +4,7 @@ let register = {
   render: async() => {
     let view = `
     <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
-<<<<<<< HEAD
     <form class="auth">
-=======
-    <form>
->>>>>>> d92f7f099162b6593fb0d946a6036a8aca68f5cc
       <div class="container">
         <div class="gray-div">
           <h2 class= "center-text">Crear cuenta</h2>

@@ -143,4 +143,3 @@ export const signOut = () => {
       console.log(error, 'Signed Out');
     });
 };
-
