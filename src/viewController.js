@@ -1,5 +1,6 @@
-import {signUp, signUpGoogle, signUpFacebook, signIn, signInFacebook, signOut, postContentSafe, obtenerDatosFirebase, editPost} from './services/FirebaseTools.js';
-// Funciones de registrarse 
+import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, signInFacebook, editPost, signOut, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
+// --------------------------------
+// FUNCIONES DE REGISTRARSE
 export const signUpOnSubmit = (email, password) => {
   signUp(email, password).then(() => location.hash = '/post');
 };
@@ -9,25 +10,27 @@ export const signUpWithGoogle = () => {
 export const signUpWithFacebook = () => {
   signUpFacebook().then(() => location.hash = '/post');
 };
-
-// Funciones de inicio de sesión
+// --------------------------------
+// FUNCION DE INICIAR SESIÓN
 export const signInOnSubmit = (email, password) => {
   signIn(email, password).then(() => location.hash = '/post');
 };
+export const signInWithGoogle = () => {
+  signInGoogle().then(() => location.hash = '/post');
+};
 export const signInWithFacebook = () => {
-  signInFacebook();
+  signInFacebook().then(() => location.hash = '/post');
   console.log('entro');
 };
-
-// Funciones de salir de sesión
+// --------------------------------
+// FUNCION DE CERRAR SESIÓN
 export const signOutFromSession = () => {
-  signOut().then(() => location.hash = '/login');
+  signOut();
 };
-
-// Funciones del muro de publicaciones
-// editar
+// --------------------------------
+// FUNCIONES DE EDITAR POST 
 export const editPostInWall = (rowId, inputValue) => {
-  console.log('Entro al view-controller')
+  console.log('Entro al view-controller');
   editPost(rowId, inputValue);
 };
 // Sacar coleccion de posts de firebase
@@ -38,22 +41,3 @@ export const postContent = (postTxt) => {
 export const postContentLs = (callback) => {
   obtenerDatosFirebase(callback);
 };
-export const deletePostsByUid = (uid) => {
-  deletePost(uid);
-};
-
-/* export const postContentLs = (postContentAll) => {
-  let postsList = (postContentAll) => {
-    let view = `
-    <div>
-    <span id="post-content" type="text">${postContentAll}</span>
-    <a id="btn-to-delete-content">Eliminar</a>
-    <a id="btn-to-edit-content">Editar</a>
-    <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>
-    </div>
-    `;
-    document.getElementById('post-content-list').innerHTML = view;
-  };
-  return*/
-
-

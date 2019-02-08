@@ -1,8 +1,10 @@
 import { postContent, postContentLs, signOutFromSession, editPostInWall } from '../viewController.js';
-// import { editPost } from '../services/FirebaseTools.js';
+import { deletePost } from '../services/FirebaseTools.js';
 
 let posts = {
   render: async(postInputValue) => {
+    // --------------------------------
+    // TEMPLATE DE MURO
     let view = `<h1>Bienvenido </h1>
     <p>¡Eres nueva usuaria!</p>
     <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
@@ -14,36 +16,53 @@ let posts = {
     return view;
   },
   applyTemplate: (row, uidUser) => {
-    const uidUserLogueado = firebase.auth().currentUser.uid;
+    console.log(row.uidUser, uidUser);
+    // --------------------------------
+    // TEMPLATE PARA LISTA DE PUBLICACIONES 
     return `<li id= "${row.id}">${row.descripcion}</li>
     <input id="input-${row.id}" type="text" value="${row.descripcion}" class="ocultar-post">
-    ${uidUserLogueado ? '<a id="btn-to-delete-content" class="btn-delete">Eliminar</a>' : null }
-    ${uidUserLogueado ? '<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class="btn-edit">Editar</a>' : null }
+    
+    ${uidUser === row.uidUser ? '<a id="btn-to-delete-content" class="btn-delete">Eliminar</a>' : '' }
+    ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class="btn-edit">Editar</a>` : '' }
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
     <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>`;
   },
   after_render: () => {
-    const pintar = (arrPosts, uid) => {
+    // --------------------------------
+    // FUNCION PARA PINTAR TEMPLATE DE LISTA - función para recorrer template de lista de publicaciones
+    const pintar = (arrPosts) => {
       document.querySelector('#post-content-list').innerHTML = '';
       const uidUserLogueado = firebase.auth().currentUser.uid;
       arrPosts.forEach(row => {
         const html = posts.applyTemplate(row, uidUserLogueado);
         document.querySelector('#post-content-list').innerHTML += html;
-      });
+      }); 
+      // variables para botones de posts
       const botonesEditar = document.querySelectorAll('.btn-edit');
       const botonesGuardar = document.querySelectorAll('.btn-save');
-// Evento para guardar posts
+      const buttonsDelete = document.querySelectorAll('.btn-delete');
+      // GUARDAR - Evento para guardar un post
       botonesGuardar.forEach((botonGuardar) => {
         const id = botonGuardar.dataset.id;
         botonGuardar.addEventListener('click', () => {
           document.getElementById(`btn-save-content-${id}`).classList.add('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.remove('ocultar-post');
           const inputValue = document.getElementById(`input-${id}`).value;
-            console.log(inputValue);
-            editPostInWall(id, inputValue);
+          console.log(inputValue);
+          editPostInWall(id, inputValue);
         });
       });
-// Evento para editar posts
+      // --------------------------------
+      // ELIMINAR - Evento para guardar un post
+      buttonsDelete.forEach((buttonDelete) => {
+        const id = buttonDelete.dataset.id;
+        buttonDelete.addEventListener('click', () => {
+          document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
+          deletePost(id);
+        });
+      });
+      // --------------------------------
+      // EDITAR - Evento para editar posts
       botonesEditar.forEach((boton) => {
         boton.addEventListener('click', () => {
           const id = boton.dataset.id;
@@ -51,16 +70,16 @@ let posts = {
           document.getElementById(id).classList.add('ocultar-post');
           document.getElementById(`btn-save-content-${id}`).classList.remove('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.add('ocultar-post');
-        // editPostInWall(id);
         });
       });
     };
+    // --------------------------------
+    // PINTAR POSTS DE FB - Evento para editar posts
     postContentLs(pintar);
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
-      const inputValue = document.getElementById('post-content').value;
       // validación de input vacio
-      if (inputValue !== '') {
-        let postTxt = document.getElementById('post-content').value;
+      let postTxt = document.getElementById('post-content').value;
+      if (postTxt !== '') {
         postContent(postTxt);
         document.getElementById('post-content').value = '';
       } else {
@@ -77,23 +96,28 @@ let posts = {
 
 export default posts;
 
-// export let postsList = {
-//  render: async(postInputValue) => {
-//    let view = `
-//    <div>
-//      <span id="post-content" type="text">${postInputValue}</span>
-//      <a id="btn-to-delete-content">Eliminar</a>
-//      <a id="btn-to-edit-content">Editar</a>
-//      <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>
-//    </div>
-//    `;
-//    return view;
-//  },
-//  after_render: async() => {
-//    document.getElementById('btn-to-pots-content').addEventListener('click', () => {
-//      let postTxt = document.getElementById('post-content').value;
-//      postContent(postTxt);
-//    });
-//  }
+// <div id="miModal" class="modal">
+//  <div class="flex" id="flex">
+// <div class="modal-header flex">
+// <h2>MENSAJE</h2>
+// <p>¿Estás seguro que deseas eliminar?</p>
+// <a id="btn-delete-sure" type="button" > Aceptar</a>
+// </div>
+//  </div>
+//     </div>
 
-// };
+// Evento para modal al eliminar un post 
+// buttonDelete.forEach((btn) => {
+// btn.addEventListener('click', () => {
+//   console.log('está entrando ');
+// // const id = btn.dataset.id;
+// let modalDelete = ` 
+// <h1>¿Estás seguro que deseas eliminar? </h1>
+//     <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
+//     <a id="btn-to-pots-content">Publicar</a>
+//     <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
+//     <span id="post-content-list" type="text"></span>
+//     `;
+
+// });
+// });
