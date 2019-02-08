@@ -1,4 +1,4 @@
-import { postContent, postContentLs, signOutFromSession, editPostInWall } from '../viewController.js';
+import { postContent, postContentLs, signOutFromSession, editPostInWall, postConfigPrivacy } from '../viewController.js';
 import { deletePost } from '../services/FirebaseTools.js';
 
 let posts = {
@@ -9,38 +9,43 @@ let posts = {
     <p>¡Eres nueva usuaria!</p>
     <input id="post-content" type="text" placeholder="¿En que estas pensado?"></input>
     <p id="error-empty-input" class="error-message"></p>
-    <a id="btn-to-pots-content">Publicar</a>
+    <a id="btn-to-pots-content">Publicar para todos</a><br><br><br>
+    <a id="btn-to-pots-content-for-me">Publicar para mi</a><br><br>
     <a id="btn-Sign-Out" type="button">Cerrar sesión</a>
     <span id="post-content-list" type="text"></span>
     `;
     return view;
   },
   applyTemplate: (row, uidUser) => {
-    console.log(row.uidUser, uidUser);
+    console.log(row.uidUser, uidUser, row.state);
+    // ${row.state === 'privado'}
     // --------------------------------
     // TEMPLATE PARA LISTA DE PUBLICACIONES 
-    return `<li id= "${row.id}">${row.descripcion}</li>
+    return `
+    <li id= "${row.id}" data-state= "${row.state}" class= "${row.id}">${row.descripcion}</li> 
     <input id="input-${row.id}" type="text" value="${row.descripcion}" class="ocultar-post">
-    
-    ${uidUser === row.uidUser ? '<a id="btn-to-delete-content" class="btn-delete">Eliminar</a>' : '' }
+    ${uidUser === row.uidUser ? `<a id="btn-to-delete-content-${row.id}" data-id="${row.id}" class="btn-delete">Eliminar</a>` : '' }
     ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class="btn-edit">Editar</a>` : '' }
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
     <a id="btn-to-like-content">Me gusta<span id="like-counter"></span></a>`;
   },
+  
   after_render: () => {
     // --------------------------------
     // FUNCION PARA PINTAR TEMPLATE DE LISTA - función para recorrer template de lista de publicaciones
     const pintar = (arrPosts) => {
       document.querySelector('#post-content-list').innerHTML = '';
       const uidUserLogueado = firebase.auth().currentUser.uid;
+      const privcyState = firebase.firestore().collection('Posts').doc('state'); // privacy
       arrPosts.forEach(row => {
-        const html = posts.applyTemplate(row, uidUserLogueado);
+        const html = posts.applyTemplate(row, uidUserLogueado, privcyState);// privacy
         document.querySelector('#post-content-list').innerHTML += html;
       }); 
       // variables para botones de posts
       const botonesEditar = document.querySelectorAll('.btn-edit');
       const botonesGuardar = document.querySelectorAll('.btn-save');
       const buttonsDelete = document.querySelectorAll('.btn-delete');
+      const buttonPrivacyPost = document.getElementById('btn-to-pots-content-for-me');
       // GUARDAR - Evento para guardar un post
       botonesGuardar.forEach((botonGuardar) => {
         const id = botonGuardar.dataset.id;
@@ -72,6 +77,14 @@ let posts = {
           document.getElementById(`btn-to-edit-content-${id}`).classList.add('ocultar-post');
         });
       });
+      // --------------------------------
+      // PUBLICAR PRIVADO - Evento para publicar contenido solo para el usuario del post
+      buttonPrivacyPost.addEventListener('click', (boton) => {   
+        console.log('entro a pri');
+        const id = boton.dataset.id;
+        console.log(id);
+        postConfigPrivacy(id);
+      });
     };
     // --------------------------------
     // PINTAR POSTS DE FB - Evento para editar posts
@@ -88,10 +101,10 @@ let posts = {
       }
     });
     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
-      console.log('entro al evento');
       signOutFromSession();
     });
-  }
+    
+  },
 };
 
 export default posts;

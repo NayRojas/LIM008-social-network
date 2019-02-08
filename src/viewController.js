@@ -1,4 +1,4 @@
-import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, signInFacebook, editPost, signOut, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
+import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, signInFacebook, editPost, signOut, postContentSafe, obtenerDatosFirebase, postPrivacy} from './services/FirebaseTools.js';
 // --------------------------------
 // FUNCIONES DE REGISTRARSE
 export const signUpOnSubmit = (email, password) => {
@@ -40,4 +40,8 @@ export const postContent = (postTxt) => {
 // Sacar coleccion de posts de firebase
 export const postContentLs = (callback) => {
   obtenerDatosFirebase(callback);
+};
+// Obtener la estado del post - si público o privado
+export const postConfigPrivacy = (postId) => {
+  postPrivacy(postId);
 };
