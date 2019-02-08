@@ -1,10 +1,11 @@
-import { signInOnSubmit , signInWithGoogle} from '../viewController.js';
+import { signInOnSubmit, signInWithFacebook, signInWithGoogle } from '../viewController.js';
 
+// TEMPLATE PARA INICIO DE SESIÓN
 let login = {
   render: async() => {
     let view = `
     <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
-    <form>
+    <form class="auth">
       <div class="container">
         <div>
         <h2 class= "center-text" >Iniciar sesión</h2>
@@ -21,8 +22,8 @@ let login = {
           <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
         </div>
         <div>
-            <a  id="button-to-log-in-with-google" type="button" class="icon-google white-color red-back two-button btns-beside">Google</button>
-            <a  id="button-to-log-in-with-facebook" type="button" class="icon-facebook white-color blue-back two-button btns-beside">Facebook</button>
+            <a id="button-to-log-in-with-google" type="button" class="icon-google white-color red-back two-button btns-beside">Google</button>
+            <a id="button-to-log-in-with-facebook" type="button" class="icon-facebook white-color blue-back two-button btns-beside">Facebook</button>
           </div>
         
     </div>
@@ -32,16 +33,24 @@ let login = {
     return view;
   },
   after_render: async() => {
+    // RENDERIZADO DE EVENTOS
+    // Evento para inicio de sesión
     document.getElementById('button-to-log-in').addEventListener('click', () => {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      // Validación para campos vacios antes de iniciar
       if (email === '' || password === '') {
         document.getElementById('error-missing-fields-on-registration').innerHTML = 'Completa tus datos para ingresar';  
       } else {
-      // sign In
+      // FUNCIÓN INICIO DE SESIÓN
         signInOnSubmit(email, password);
       }
     });
+    // Evento para inicio de sesión con Facebook
+    document.getElementById('button-to-log-in-with-facebook').addEventListener('click', () => {
+      signInWithFacebook();
+    });
+    // Evento para inicio de sesión con Google
     document.getElementById('button-to-log-in-with-google').addEventListener('click', () => {
       signInWithGoogle();
     });

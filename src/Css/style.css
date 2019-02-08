@@ -40,7 +40,7 @@ a {
 
 .btns-beside {
   width: 45%;
-  transform: translateX(-15%) translateY(-%);
+  transform: translateX(-15%) translateY(-0%);
 }
 
 button:hover {
@@ -220,3 +220,10 @@ container {
 .mostrar-post {
   display: block;
 }
+<<<<<<< HEAD
+
+.remove-link {
+  text-decoration: none;
+}
+=======
+>>>>>>> d92f7f099162b6593fb0d946a6036a8aca68f5cc

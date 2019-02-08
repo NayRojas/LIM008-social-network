@@ -175,10 +175,19 @@ function showSlides() {
   slides[slideIndex - 1].style.display = 'block'; 
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d92f7f099162b6593fb0d946a6036a8aca68f5cc
 
 
 
 
+<<<<<<< HEAD
+>>>>>>> d92f7f099162b6593fb0d946a6036a8aca68f5cc
+=======
+>>>>>>> d92f7f099162b6593fb0d946a6036a8aca68f5cc
   
 // Añadir evento para salir de sesión
 // btnSignOut.addEventListener('click', e => {
