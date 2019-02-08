@@ -40,7 +40,7 @@ a {
 
 .btns-beside {
   width: 45%;
-  transform: translateX(-15%) translateY(-%);
+  transform: translateX(-15%) translateY(-0%);
 }
 
 button:hover {
