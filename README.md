@@ -16,7 +16,7 @@ Hoy, mas que nunca, la posición social de la mujer a tomado mucho mas poder y a
 
 Como el antes mencionado, existen millones y la necesidad solo toma fuerza cada día, por lo que espacios que permitan la oportunidad a mujeres con este sentir de equidad en los aspectos bases de una sociedad (cultural, social, moral, economico y educativo), son mas que necesarios. 
 
-## |. ¿Eva?
+## I . ¿Eva?
 
 Eva, es un espacio que fomenta y promueve el equilibrio social, cultural y educativo entre géneros. En ella, puedes publicar contenido de interés para la comunidad, conectar con personas con los mismos ideales y conocer tópicos y noticias que acontecen en la comunidad.
 
@@ -28,15 +28,15 @@ Promover el feminismo desde el punto de vista de equitativo.
 
 Crear una plataforma que facilite al usuario las acciones básicas de una red social como iniciar sesión, publicar, editar, eliminar y elegir privacidad de contenido aplicando como base de datos Firebase. 
 
-## ||. ¿A quien esta dirigida?
+## II. ¿A quien esta dirigida?
 
 ### Usuarios
 
 * Público primario:  
-- Mujeres de 18 a 35 años que desean expresar de forma libre y sin prejuicios sus pensamientos, logros e ideales en relación a la equidad de genero en Perú. 
+  - Mujeres de 18 a 35 años que desean expresar de forma libre y sin prejuicios sus pensamientos, logros e ideales en relación a la equidad de genero en Perú. 
 
 * Público secundario:  
-- Mujeres de 18 a 56 años que no se consideran feministas pero desean aportar al movimiento para promover la equidad y disminuir la violencia contra la mujer. 
+  - Mujeres de 18 a 56 años que no se consideran feministas pero desean aportar al movimiento para promover la equidad y disminuir la violencia contra la mujer. 
 
 Luego de una breve investigación y entrevistas, definimos como **user persona** al siguiente:
 
@@ -60,6 +60,8 @@ Ahora bien, apartando nuestras opiniones personas, las entrevistas nos permitier
 - La mayoria de las comunidades que conozco son foros pero nunca he conocido presencialmente a alguna de estas mujeres.
 - Cualquier red social para empoderar a las mujeres debe ser inclusiva
 
+####Lean Canvas
+
 ![lean camvas](http://subirimagen.me/uploads/20190210144323.png)
 
 Como vemos, el **Lean Canvas** nos brnda un abreboca sobre los problemas y posibles soluciones que podriamos plantear para apotar un grano mas de arena a la solución. Sin embargo en esta primera fase abordaremos los siguientes items:
@@ -82,28 +84,28 @@ La plataforma para su lanzamiento en primera etapa contará con la funcionalidad
 - Poner la interfaz actual en funcionamiento real, con estas 50 mujeres para recolectar data que nos permita cambiar banners en relación al contenido y optimizar las secciones de mejora. 
 - Hacer los prototipos de baja y alta fidelidad de las secciones de mejora.
 
-## Composición de la interfaz
+## III. Composición de la interfaz
 
 ### Elementos básicos 
 
 El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
 
 * Crear cuenta:
-- Con usuario y contraseña: los datos almacenados en esta acción se guardan en la sección de autenticación de Firebase, levantando las alertas cuando ambos valores no cumplan con los estandares requeridos. 
-- Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
-- Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
+  - Con usuario y contraseña: los datos almacenados en esta acción se guardan en la sección de autenticación de Firebase, levantando las alertas cuando ambos valores no cumplan con los estandares requeridos. 
+  - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
+  - Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
 
 * Iniciar sesión:
-- Con usuario y contraseña: los datos almacenados en esta acción se validan contra los datos en Firebase para validar si el usuario existe, levantando las alertas cuando no se encuentre registrado, la contraseña sea invalidad o la credencial no concuerde con el email ingresado. 
-- Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
-- Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
+  - Con usuario y contraseña: los datos almacenados en esta acción se validan contra los datos en Firebase para validar si el usuario existe, levantando las alertas cuando no se encuentre registrado, la contraseña sea invalidad o la credencial no concuerde con el email ingresado. 
+  - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
+  - Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
 
 * Publicar **posts**:
-- A traves de un area de texto el usuario puede compartir un texto.
-- Antes de compartir puede elegir la privacidad, si es público el post será visto por todos las personas que esten activas en la sesión, si es privado solo podrá verlo el usuario directo del post.
-- **Editar**: tendrá la oportunidad de editar el texto del post que ha compartido y guardarlo para que sea este último el nuevo post a mostrar.
-- **Elminiar**: podrá elminar definitivamente un post de la lista pública o privada.
-- **Me gusta**: podrá manifestar su gusto por el post de su preferencia al dar clic. 
+  - A traves de un area de texto el usuario puede compartir un texto.
+  - Antes de compartir puede elegir la privacidad, si es público el post será visto por todos las personas que esten activas en la sesión, si es privado solo podrá verlo el usuario directo del post.
+  - **Editar**: tendrá la oportunidad de editar el texto del post que ha compartido y guardarlo para que sea este último el nuevo post a mostrar.
+  - **Elminiar**: podrá elminar definitivamente un post de la lista pública o privada.
+  - **Me gusta**: podrá manifestar su gusto por el post de su preferencia al dar clic. 
 
 * Entender las necesidades de los usuarios para los que crearás el producto y
   que ayudarás a resolver.
