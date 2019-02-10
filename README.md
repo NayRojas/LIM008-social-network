@@ -3,7 +3,9 @@
  ![Muro](http://subirimagen.me/uploads/20190210155721.png)
 
 [Prototipo Interactivo](https://es.wikipedia.org/wiki/Single-page_application)
+
 [Nota en Medium](https://es.wikipedia.org/wiki/Single-page_application)
+
 [Lean Canvas y recursos](https://es.wikipedia.org/wiki/Single-page_application)
 
 
