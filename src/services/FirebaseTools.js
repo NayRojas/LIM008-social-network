@@ -96,16 +96,15 @@ export const signInGoogle = () =>
 // --------------------------------
 // FUNCIONES PARA GUARDAR Y CREAR POSTS
 // guarda datos en fb
-export const postContentSafe = (postTxt, uidUser) => 
+export const postContentSafe = (postTxt, privacy) => 
   firebase.firestore().collection('Posts').add({
     uidUser: firebase.auth().currentUser.uid,
     descripcion: postTxt,
     likes: 0,
-    state: '',
+    state: privacy,
   });
 // actualiza la colección de fb a la ui
 export const obtenerDatosFirebase = (callback) => {
-  console.log(callback);
   firebase.firestore().collection('Posts')
     .onSnapshot(function(querySnapshot) {
       const posts = [];
@@ -128,12 +127,16 @@ export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete();
 };
 // Función para configurar la privacidad del post a privado
-export const postPrivacy = (postId) => {
-  let currentPost = firebase.firestore().collection('Posts').doc(postId);
-  currentPost.update({
-    state: 'privado',
-  });
-};
+/* export const postPrivacy = (postId) => 
+  // firebase.firestore().collection('Posts').doc(postId).where('id', '==', postId).set({ state: 'private'});
+  firebase.firestore().collection('Posts').where('id', '==', postId).update({ 
+    state: 'private',
+  }).then(function(docRef) {
+    console.log('Document written with ID: ', docRef.id);
+  })
+    .catch(function(error) {
+      console.error('Error adding document: ', error);
+    });*/
 // --------------------------------
 // FUNCION PARA SALIR DE SESION 
 export const signOut = () => {

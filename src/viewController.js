@@ -1,4 +1,4 @@
-import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, signInFacebook, editPost, signOut, postContentSafe, obtenerDatosFirebase, postPrivacy} from './services/FirebaseTools.js';
+import {signUp, signUpGoogle, signUpFacebook, signIn, signInGoogle, signInFacebook, editPost, signOut, postContentSafe, obtenerDatosFirebase} from './services/FirebaseTools.js';
 // --------------------------------
 // FUNCIONES DE REGISTRARSE
 export const signUpOnSubmit = (email, password) => {
@@ -30,18 +30,26 @@ export const signOutFromSession = () => {
 // --------------------------------
 // FUNCIONES DE EDITAR POST 
 export const editPostInWall = (rowId, inputValue) => {
-  console.log('Entro al view-controller');
   editPost(rowId, inputValue);
 };
 // Sacar coleccion de posts de firebase
-export const postContent = (postTxt) => {
-  postContentSafe(postTxt);
+export const postContent = (postTxt, privacy) => {
+  postContentSafe(postTxt, privacy);
 };
 // Sacar coleccion de posts de firebase
 export const postContentLs = (callback) => {
   obtenerDatosFirebase(callback);
 };
 // Obtener la estado del post - si público o privado
-export const postConfigPrivacy = (postId) => {
+/* export const postConfigPrivacy = (postId) => {
   postPrivacy(postId);
+};*/
+// Cambia la seleccion de privacidad del post a compartir 
+export const changePrivacy = () => {
+  let privacy = document.getElementById('privacy');
+  if (privacy.innerHTML == 'Público') {
+    privacy.innerHTML = 'Privado';
+  } else {
+    privacy.innerHTML = 'Público'; 
+  }
 };
