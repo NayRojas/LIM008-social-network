@@ -3,11 +3,8 @@
  ![Muro](http://subirimagen.me/uploads/20190210155721.png)
 
 [Prototipo Interactivo](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
 [Nota en Medium](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
 [Lean Canvas y recursos](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
 
 
 ## Preámbulo
