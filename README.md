@@ -1,57 +1,110 @@
-# Creando una Red Social
+# Red Social, Eva
 
-## Índice
+ ![Muro](http://subirimagen.me/uploads/20190210155721.png)
 
-* [Preámbulo](#preámbulo)
-* [Introducción](#introducción)
-* [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
-* [Consideraciones generales](#consideraciones-generales)
-* [Parte obligatoria](#parte-obligatoria)
-* [Parte opcional](#hacker-edition)
-* [Consideraciones técnicas](#consideraciones-técnicas)
-* [Consideraciones UX](#consideraciones-ux)
-* [Consideraciones Agile](#consideraciones-ágil)
-* [Habilidades blandas](#habilidades-blandas)
-* [Enrega Final](#entrega)
-* [Pistas / Tips / Lecturas complementarias](#recursos)
-* [Checklist](#checklist)
+[Prototipo Interactivo](https://es.wikipedia.org/wiki/Single-page_application)
+[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
+[Nota en Medium](https://es.wikipedia.org/wiki/Single-page_application)
+[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
+[Lean Canvas y recursos](https://es.wikipedia.org/wiki/Single-page_application)
+[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
+
 
 ## Preámbulo
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+Hoy, mas que nunca, la posición social de la mujer a tomado mucho mas poder y atiende a millones de movimientos que procuran una equidad en los sectores en los cuales la mujer, por su cualidad de ser, ha sido discriminada, disminuida y dejada a un lado. La diversidad de medios que han dado lugar y voz a una necesidad cultural y moral, se han exapndido por el mundo, sobrepasando religiones, creencias y fronteras. Un ejemplo claro de esto, es ** Ni una menos **, es una consigna que dio nombre a un movimiento feminista surgido en Argentina en 2015 y ahora se encuentra en Perú y varios paises de Latinoamerica. 
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+Como el antes mencionado, existen millones y la necesidad solo toma fuerza cada día, por lo que espacios que permitan la oportunidad a mujeres con este sentir de equidad en los aspectos bases de una sociedad (cultural, social, moral, economico y educativo), son mas que necesarios. 
 
-## Introducción
+## |. ¿Eva?
 
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
-en los que le gustaría invertir:
+Eva, es un espacio que fomenta y promueve el equilibrio social, cultural y educativo entre géneros. En ella, puedes publicar contenido de interés para la comunidad, conectar con personas con los mismos ideales y conocer tópicos y noticias que acontecen en la comunidad.
 
-* Alimentación
-* Feminismo
-* Educación
-* Salud
-* Energías Renovables
+* Objetivo principal de Eva:
 
-## Objetivos de Aprendizaje
+Promover el feminismo desde el punto de vista de equitativo.
 
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
- (con más de una vista / página) en la que podamos **leer y escribir datos.**
+* Objetivo del proyecto:
 
-Dicho en palabras sencillas, aprenderás a:
+Crear una plataforma que facilite al usuario las acciones básicas de una red social como iniciar sesión, publicar, editar, eliminar y elegir privacidad de contenido aplicando como base de datos Firebase. 
 
-* Aplicar y profundizar todo lo que aprendiste en el proyecto anterior.
+## ||. ¿A quien esta dirigida?
+
+### Usuarios
+
+* Público primario:  
+- Mujeres de 18 a 35 años que desean expresar de forma libre y sin prejuicios sus pensamientos, logros e ideales en relación a la equidad de genero en Perú. 
+
+* Público secundario:  
+- Mujeres de 18 a 56 años que no se consideran feministas pero desean aportar al movimiento para promover la equidad y disminuir la violencia contra la mujer. 
+
+Luego de una breve investigación y entrevistas, definimos como **user persona** al siguiente:
+
+![user persona](http://subirimagen.me/uploads/20190210144228.png)
+
+### Necesidad
+
+[Entrevistas](https://drive.google.com/drive/folders/1d0yQdo7ZMu51yhxxMAEdgMLagpSe5I-8?usp=sharing)
+
+Durante el proceso de investigación y entrevistas nos percatamos de que existe un deseo por solventar un problema, que por muchas fue llamado como violencia, otros desigualdad. Sin embargo, fue evidente la expresión de inconformidad en relación a la ausencia de espacios donde se permita a la mujer crecer como mujer y aunque ciertamente, no vivimos en la epoca de Amurabi,donde la mujer era mas un objeto que otro cosa. Parece que la sociedad aun se duele por la ausencia de derecho a las minorias, como en este tema se aborda, las mujeres.
+
+Ahora bien, apartando nuestras opiniones personas, las entrevistas nos permitieron hallar y comprender mucho mas las necesidades, problemas y carencias que aún se viven sobre este tema:
+
+- No hay un espacio donde no te jusguen
+- El hecho de mencionar la feminidad es algo malo, facil te critican
+- Las redes sociales de hor, normalmente apoyan los diferentes roles que ocupa la mujer pero no el hecho de solo ser mujer
+- Aun falta mucho por hacer sobre este tema y un espacio así nunca esta demas
+- Si participo en comunidades solo para mujeres pero ninguna es tan activa como Facebook o Instagram
+- Las mujeres no hemos entendido que hay espacio para que todas brillen
+- Es necesario que aprendamos a crecer en comunidad para superar este problema 
+- La mayoria de las comunidades que conozco son foros pero nunca he conocido presencialmente a alguna de estas mujeres.
+- Cualquier red social para empoderar a las mujeres debe ser inclusiva
+
+![lean camvas](http://subirimagen.me/uploads/20190210144323.png)
+
+Como vemos, el **Lean Canvas** nos brnda un abreboca sobre los problemas y posibles soluciones que podriamos plantear para apotar un grano mas de arena a la solución. Sin embargo en esta primera fase abordaremos los siguientes items:
+
+* Las bases del producto estara basado en el respeto y equidad. 
+* El contenido predominante estará basado en fomentar el crecimiento cultura, social y edicativo.
+* Se pretende un sistema de básico de publicación, edición, eliminación y preferencia de contenido para los miembros de la comunidad. 
+
+### El usuario vs. producto
+
+Como hemos visto, la soluciones a este problema tienen mas de un matiz. Nuestra intención es crear este espacio para que muchas mujeres sean parte de la primera comunidad online para el crecimiento de mujeres en Perú. Inicialmente, el producto en su fase inicial, pretende dar a conocer el espacio y brindar los primeros contactos con la aplicación. 
+
+*Fase piloto
+
+La plataforma para su lanzamiento en primera etapa contará con la funcionalidades básicas de una red social, duramte esta fase se pretenden lograr los siguientes objetivos:
+
+- Seleccionar a 50 mujeres entre el publico primario y secundario, con distintas estartos sociales, niveles educativos, preferencias sexuales e ideales. 
+- Elegir un mentor para la optimización de alto nivel. 
+- Iterar el prototipo actual buscando mejorar a la plataforma en funcionalidad, diseño y concepto. 
+- Poner la interfaz actual en funcionamiento real, con estas 50 mujeres para recolectar data que nos permita cambiar banners en relación al contenido y optimizar las secciones de mejora. 
+- Hacer los prototipos de baja y alta fidelidad de las secciones de mejora.
+
+## Composición de la interfaz
+
+### Elementos básicos 
+
+El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
+
+* Crear cuenta:
+- Con usuario y contraseña: los datos almacenados en esta acción se guardan en la sección de autenticación de Firebase, levantando las alertas cuando ambos valores no cumplan con los estandares requeridos. 
+- Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
+- Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
+
+* Iniciar sesión:
+- Con usuario y contraseña: los datos almacenados en esta acción se validan contra los datos en Firebase para validar si el usuario existe, levantando las alertas cuando no se encuentre registrado, la contraseña sea invalidad o la credencial no concuerde con el email ingresado. 
+- Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
+- Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
+
+* Publicar **posts**:
+- A traves de un area de texto el usuario puede compartir un texto.
+- Antes de compartir puede elegir la privacidad, si es público el post será visto por todos las personas que esten activas en la sesión, si es privado solo podrá verlo el usuario directo del post.
+- **Editar**: tendrá la oportunidad de editar el texto del post que ha compartido y guardarlo para que sea este último el nuevo post a mostrar.
+- **Elminiar**: podrá elminar definitivamente un post de la lista pública o privada.
+- **Me gusta**: podrá manifestar su gusto por el post de su preferencia al dar clic. 
+
 * Entender las necesidades de los usuarios para los que crearás el producto y
   que ayudarás a resolver.
 * Poner en juego tu creatividad para generar ideas que lleven a una solución
@@ -60,6 +113,10 @@ Dicho en palabras sencillas, aprenderás a:
   _feedback_ constante.
 * Definir como crear la estructura de tu propia data y de qué forma mostrarla en
   el producto.
+
+  ### Modelado de datos
+
+Aquí colocaremos como organizamos los datos en firebase y por que?
 
 ## Consideraciones generales
 
@@ -71,7 +128,6 @@ frameworks o librerías de CSS y JS.
 
 Para comenzar tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
-
 ## Parte obligatoria
 
 ### General
