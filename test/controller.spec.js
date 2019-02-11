@@ -1,11 +1,5 @@
-import * as viewControllerFunctions from '../src/viewController.js';
+import {signUpWithGoogle, signUpWithFacebook, signInOnSubmit, signInWithGoogle, signInWithFacebook, signOutFromSession, editPostInWall, postContent, postContentLs} from '../src/viewController.js';
 
-describe('viewControllerFunctions', () => {
-  it('debería ser una función', () => {
-    expect(typeof viewControllerFunctions).toBe('function');
-  });
-});
-/*
 describe('signUpWithGoogle', () => {
   it('debería ser una función', () => {
     expect(typeof signUpWithGoogle).toBe('function');
@@ -64,4 +58,4 @@ describe('postchangePrivacyContentLs', () => {
   it('debería ser una función', () => {
     expect(typeof changePrivacy).toBe('function');
   });
-});*/
+});
