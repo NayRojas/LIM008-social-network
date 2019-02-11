@@ -30,14 +30,22 @@ export const signOutFromSession = () => {
 // --------------------------------
 // FUNCIONES DE EDITAR POST 
 export const editPostInWall = (rowId, inputValue) => {
-  console.log('Entro al view-controller');
   editPost(rowId, inputValue);
 };
 // Sacar coleccion de posts de firebase
-export const postContent = (postTxt) => {
-  postContentSafe(postTxt);
+export const postContent = (postTxt, privacy) => {
+  postContentSafe(postTxt, privacy);
 };
 // Sacar coleccion de posts de firebase
 export const postContentLs = (callback) => {
   obtenerDatosFirebase(callback);
+};
+// Cambia la seleccion de privacidad del post a compartir 
+export const changePrivacy = () => {
+  let privacy = document.getElementById('privacy');
+  if (privacy.innerHTML === 'Público') {
+    privacy.innerHTML = 'Privado';
+  } else {
+    privacy.innerHTML = 'Público'; 
+  }
 };
