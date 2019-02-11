@@ -3,9 +3,9 @@
 // con correo y contraseña
 export const signUp = (email, password) => 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(function(e) {
-      let errorCode = e.code;
-      let errorMessage = e.message;
+    .catch(function(event) {
+      let errorCode = event.code;
+      let errorMessage = event.message;
       console.log(errorMessage);
       if (errorCode === 'auth/invalid-email') {
         document.getElementById('error-messase-invalid-email').innerHTML = '¡Hey! Ingresa un correo electronico válido';
@@ -25,7 +25,7 @@ export const signUpGoogle = () =>
     let token = result.credential.accessToken;
     let user = result.user;
   }).catch(function(error) {
-    // Handle Errors here.
+  // Handle Errors here.
     let errorCode = error.code;
     let email = error.email;
     if (errorCode === 'auth/account-exists-with-different-credential') {
@@ -39,7 +39,7 @@ export const signUpFacebook = () =>
     let token = result.credential.accessToken;
     let user = result.user;
   }).catch(function(error) {
-    // Handle Errors here.
+  // Handle Errors here.
     let errorCode = error.code;
     let errorMessage = error.message;
     let email = error.email;
@@ -53,9 +53,9 @@ export const signUpFacebook = () =>
 // iniciar sesión con correo y contraseña
 export const signIn = (email, password) => 
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .catch(function(e) {
-      let errorCode = e.code;
-      let errorMessage = e.message;
+    .catch(function(event) {
+      let errorCode = event.code;
+      let errorMessage = event.message;
       console.log(errorMessage);
       if (errorCode === 'auth/invalid-email') {
         document.getElementById('error-messase-invalid-email').innerHTML = '¡Hey! Ingresa un correo electronico válido';
@@ -76,15 +76,15 @@ export const signInFacebook = () =>
       console.log(errorMessage);
     });
 // iniciar sesión con google
-export const signInGoogle = () => 
+export const signInGoogle = () =>
   firebase.auth().signInWithPopup(googleProvider).then(function(result) {
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     let token = result.credential.accessToken;
     // The signed-in user info.
     let user = result.user;
-    // ...
+  // ...
   }).catch(function(error) {
-    // Handle Errors here.
+  // Handle Errors here.
     let errorCode = error.code;
     let errorMessage = error.message;
     let email = error.email;
@@ -126,17 +126,6 @@ export const editPost = (postId, inputValue) => {
 export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete();
 };
-// Función para configurar la privacidad del post a privado
-/* export const postPrivacy = (postId) => 
-  // firebase.firestore().collection('Posts').doc(postId).where('id', '==', postId).set({ state: 'private'});
-  firebase.firestore().collection('Posts').where('id', '==', postId).update({ 
-    state: 'private',
-  }).then(function(docRef) {
-    console.log('Document written with ID: ', docRef.id);
-  })
-    .catch(function(error) {
-      console.error('Error adding document: ', error);
-    });*/
 // --------------------------------
 // FUNCION PARA SALIR DE SESION 
 export const signOut = () => {

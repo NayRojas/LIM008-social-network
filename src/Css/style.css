@@ -1,12 +1,53 @@
 
-body {font-family: Arial, Helvetica, sans-serif;}
+@import url('https://fonts.googleapis.com/css?family=Karla|Rubik');
+/*
+font-family: 'Rubik', sans-serif;
+font-family: 'Karla', sans-serif;
+*/
+body{
+  width: 100%;
+}
+.container {
+  max-width: 98%;;
+  padding: 5px 16px 5px 16px;
+}
+/*COLORS*/
+.black{
+  color:rgb(53,53,53);
+}
+.purple{
+  color:rgb(154,78,229);
+}
+.purple-back{
+  background-color:rgb(154,78,229);
+}
+.light-purple{
+  color:rgb(177,118,237);
+}
+.white{
+  color:rgb(255,255,255);
+}
+.gray{
+  color:rgb(212,216,205);
+}
+.gray-back{
+  background-color:rgb(212,216,205);
+}
+.red-back {
+  background-color: rgb(175, 18, 18);
+}
+.blue-back {
+  background-color: rgb(61, 66, 139);
+}
+.link-blue{
+  color: blue;
+}
 
 /* Full-width input fields */
-.auth input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email] {
   width: 90%;
   padding: 6px 2px;
-  margin: 5px 0 10px 0;
-  display: inline-block;
+  margin: 4px 0 5px 0;
   outline: 0;
   border-width: 0 0 1px;
   border-color: rgb(194, 194, 194);
@@ -15,34 +56,42 @@ body {font-family: Arial, Helvetica, sans-serif;}
 input:focus {
   border-color: rgb(145, 80, 231);
 }
-
 /* Set a style for all buttons */
-button {
-  background-color: rgb(145, 80, 231);
+.button {
   color: white;
-  padding: 14px 20px;
+  padding: 12px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  display: inline-block;
+  width: 80%;
   border-radius: 3px;
 }
-
+.btn-div {
+  width: 95%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+}
+.btn-bottom {
+  margin-top: 480px;
+}
+.two-button {
+  display: inline-block;
+  margin: 3px; /* space between buttons */
+}
 a {
-  color: blue;
-  padding: 14px 20px;
+  padding: 8px 8px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+  font-family: 'Rubik', sans-serif;
   border-radius: 3px;
 }
-
 .btns-beside {
   width: 45%;
-  transform: translateX(-15%) translateY(-0%);
 }
-
 button:hover {
   opacity: 0.8;
 }
@@ -52,6 +101,17 @@ button:hover {
   width: auto;
   padding: 10px 18px;
   background-color: #1d0806;
+}
+.btn-init {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  cursor: pointer;
 }
 
 /* Center the image and position the close button */
@@ -64,11 +124,6 @@ button:hover {
 img.avatar {
   width: 40%;
   border-radius: 50%;
-}
-
-.container {
-  max-width: 98%;;
-  padding: 8px 16px 8px 16px;
 }
 
 span.psw {
@@ -109,22 +164,13 @@ input:invalid {
   border: 2px solid rgb(192, 1, 1);
 }
 
-/* Add Zoom Animation 
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
 }
 
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
+.karla-font{
+  font-family: 'Karla', sans-serif;
 }
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}*/
-
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
@@ -141,43 +187,39 @@ input:invalid {
   background-color: rgb(255, 255, 255);
 }
 
-container {
-  width: 98%;
-}
-
 .center-text {
   text-align: center;
 }
 
-.red-back {
-  background-color: rgb(175, 18, 18);
+.btn {
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
 }
-
-.blue-back {
-  background-color: rgb(61, 66, 139);
-}
-
-.btn-div {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.two-button {
-  display: inline-block;
-  margin: 5px; /* space between buttons */
-}
-
 .margin-top {
   margin-top: 10px;
 }
-
-.short-padding {
-  margin: 8px;
+.width-100{
+  width: 100%;
 }
-
+.short-padding {
+  margin: 3px;
+}
+.btn-short-padding {
+  padding: 7px 20px;
+}
+.short-margin{
+  margin: 0px;
+}
+.long-margin{
+  margin-top:19px;
+}
 .medium-margin {
   margin-bottom: 16px;
+}
+.medium-margin-top {
+  margin-top: 25px;
 }
 
 .padding-for-btm-personalized {
@@ -194,36 +236,58 @@ container {
   -moz-transition: all 0.2s;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-
+}
+.img-ppl{
+  width: 99%;
+  height: 85%;
+  background-repeat: no-repeat;
+  background-position:left top;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .set-back{
   width: 100%;
   height: 100%;
-  background-repeat:no-repeat;
-  background-position:left top;
 }
 
-.mySlides{
-  animation: move 1s ease-in-out 0.5s 2 alternate;
-  animation: slide 0.5s ;
-} 
 
 .right-text{
   text-align: right;
 }
 
-.ocultar-post {
+.ocultar-post{
   display: none;
 }
 
 .mostrar-post {
   display: block;
 }
-<<<<<<< HEAD
 
 .remove-link {
   text-decoration: none;
 }
-=======
->>>>>>> d92f7f099162b6593fb0d946a6036a8aca68f5cc
+
+.display-inline{
+  display: inline-block
+}
+.list-style{
+  list-style: none;
+}
+.post-style{ 
+  width: 90%;
+  margin: 20px auto 5px auto;
+  border: 0.5px solid gray;
+  padding: 25px 10px 5px 10px;
+  border-radius: 5px;
+  box-shadow: rgb(199, 201, 196);
+}
+
+/*Transition effect*/
+.mySlides {
+  position: absolute;
+  transition: opacity .5s ease-in;
+}
+
+.mySlides + .mySlides{ opacity: 0; }

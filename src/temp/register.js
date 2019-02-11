@@ -7,28 +7,28 @@ let register = {
     <form class="auth">
       <div class="container">
         <div class="gray-div">
-          <h2 class= "center-text">Crear cuenta</h2>
+          <h2 class= "center-text rubik-font">Crear cuenta</h2>
         </div>
-        <label class="margin-top"><b>Nombre</b></label>
-        <input id = "name" class="medium-margin" type="text" placeholder="Ingresa tu nombre" name="uname" > 
-        <label class="margin-top"><b>Correo electrónico</b></label>
-        <input id = "email"  type="email" placeholder="Ingresa un correo electronico" name="uname" >
-        <p id="error-messase-invalid-email" class="error-message"></p>
-        <label for="password"><b>Contraseña</b></label>
-        <input id="password" type="password" placeholder="Escribe tu contraseña" name="psw" >
-        <p id="error-message-password" class="error-message"></p>
-        <div>
-          <a id="button-to-create-new-user" type="submit">Crear mi cuenta</a>
-          <p id="error-missing-fields-on-registration" class="error-message center-text"></p>
+        <label class="margin-top rubik-font"><b>Nombre</b></label>
+        <input id = "name" class="display-inline medium-margin karla-font" type="text" placeholder="Ingresa tu nombre" name="uname"> 
+        <label class="margin-top rubik-font"><b>Correo electrónico</b></label>
+        <input id = "email"  type="email" placeholder="Ingresa un correo electronico" name="uname" class = "karla-font display-inline">
+        <p id="error-messase-invalid-email" class="error-message karla-font"></p>
+        <label for="password" class= "rubik-font"><b>Contraseña</b></label>
+        <input id="password" type="password" placeholder="Escribe tu contraseña" name="psw" class = "karla-font display-inline">
+        <p id="error-message-password" class="error-message short-padding karla-font"></p>
+        <div class= "width-100">
+          <a id="button-to-create-new-user" type="submit" class= "button center-text purple-back">Crear mi cuenta</a>
+          <p id="error-missing-fields-on-registration" class="error-message center-text short-padding karla-font"></p>
         </div>
-        <p class="center-text short-padding">Continua con</p>
+        <p class="center-text short-padding karla-font"> - Continúa con - </p>
         <div class= "btn-div">
-          <a  id="button-to-create-new-user-google" type="button" class="icon-google white-color red-back two-button btns-beside" >Google</a>
-          <a  id="button-to-create-new-user-facebook" type="button" class="icon-facebook white-color blue-back two-button btns-beside" >Facebook</a>
+          <a  id="button-to-create-new-user-google" type="button" class="btn-short-padding button center-text icon-google white red-back two-button btns-beside" >Google</a>
+          <a  id="button-to-create-new-user-facebook" type="button" class="btn-short-padding button center-text icon-facebook white blue-back two-button btns-beside" >Facebook</a>
         </div>
         
     </div>
-      <p class="center-text">¿Ya tienes cuenta?, <a id="log-in-from-create-user" href="#log-in-screen">Inicia sesión.</a></p>
+      <p class="center-text karla-font short-margin long-margin">¿Ya tienes cuenta?, <a id="log-in-from-create-user" href="#log-in-screen"  class="link-blue">Inicia sesión.</a></p>
     </form>`;
     return view;
   },
