@@ -1,4 +1,5 @@
-import { signUpOnSubmit, signUpWithGoogle, signUpWithFacebook } from '../viewController.js';
+
+import { signUpOnSubmit, signUpWithGoogle, signUpWithFacebook, postContentLs } from '../viewController.js';
 
 let register = {
   render: async() => {

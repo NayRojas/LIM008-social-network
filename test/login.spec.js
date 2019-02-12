@@ -16,13 +16,10 @@ global.firebase = firebasemock.MockFirebaseSdk(
 import { signIn } from '../src/services/FirebaseTools.js';
 
 describe('signIn', () => {
-  it('debería ser una función', () => {
-    expect(typeof signIn).toBe('function');
-  });
   it('Debería poder iniciar sesion', () => {
     return signIn('p5@g.com', 'aloha123')
       .then((user) => {
         expect(user.email).toBe('p5@g.com');
       });
-  }); 
+  });
 });
