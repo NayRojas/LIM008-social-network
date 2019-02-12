@@ -1,5 +1,5 @@
 import { postContent, postContentLs, signOutFromSession, editPostInWall, changePrivacy} from '../viewController.js';
-import { editPost , deletePost , quieroLike} from '../services/FirebaseTools.js';
+import { editPost, deletePost, quieroLike} from '../services/FirebaseTools.js';
 
 let posts = {
   render: async(postInputValue) => {
@@ -105,15 +105,6 @@ let posts = {
         });
       });
     };
-
-
-
-    //   // --------------------------------
-    //   // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
-    // document.getElementById('privacy').addEventListener('click', () => {
-    //   changePrivacy();
-    // });
-  
     
     // --------------------------------
     // PINTAR POSTS DE FB - Evento para editar posts
@@ -131,6 +122,12 @@ let posts = {
         document.getElementById('btn-to-pots-content').classList.add('remove-link');
         document.getElementById('error-empty-input').innerHTML = 'Escribe una publicación';
       }
+      // --------------------------------
+      // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
+      document.getElementById('privacy').addEventListener('click', () => {
+        let privacy = document.getElementById('privacy');
+        (privacy.innerHTML === 'Público' ? privacy.innerHTML = 'Privado' : privacy.innerHTML = 'Público');
+      });
     });
     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
       signOutFromSession();
