@@ -1,0 +1,293 @@
+
+@import url('https://fonts.googleapis.com/css?family=Karla|Rubik');
+/*
+font-family: 'Rubik', sans-serif;
+font-family: 'Karla', sans-serif;
+*/
+body{
+  width: 100%;
+}
+.container {
+  max-width: 98%;;
+  padding: 5px 16px 5px 16px;
+}
+/*COLORS*/
+.black{
+  color:rgb(53,53,53);
+}
+.purple{
+  color:rgb(154,78,229);
+}
+.purple-back{
+  background-color:rgb(154,78,229);
+}
+.light-purple{
+  color:rgb(177,118,237);
+}
+.white{
+  color:rgb(255,255,255);
+}
+.gray{
+  color:rgb(212,216,205);
+}
+.gray-back{
+  background-color:rgb(212,216,205);
+}
+.red-back {
+  background-color: rgb(175, 18, 18);
+}
+.blue-back {
+  background-color: rgb(61, 66, 139);
+}
+.link-blue{
+  color: blue;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 90%;
+  padding: 6px 2px;
+  margin: 4px 0 5px 0;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: rgb(194, 194, 194);
+  text-align: left;
+}
+input:focus {
+  border-color: rgb(145, 80, 231);
+}
+/* Set a style for all buttons */
+.button {
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  width: 80%;
+  border-radius: 3px;
+}
+.btn-div {
+  width: 95%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+}
+.btn-bottom {
+  margin-top: 480px;
+}
+.two-button {
+  display: inline-block;
+  margin: 3px; /* space between buttons */
+}
+a {
+  padding: 8px 8px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Rubik', sans-serif;
+  border-radius: 3px;
+}
+.btns-beside {
+  width: 45%;
+}
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #1d0806;
+}
+.btn-init {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  cursor: pointer;
+}
+
+/* Center the image and position the close button */
+.center-img {
+  margin: 10px auto;
+  display: block;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  color: black;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+/* Add Color to Error message */
+.error-message {
+  color: rgb(192, 1, 1);
+}
+
+input:invalid {
+  border: 2px solid rgb(192, 1, 1);
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}
+
+.karla-font{
+  font-family: 'Karla', sans-serif;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+/* First screen*/
+#first-screen {
+  background-color: rgb(255, 255, 255);
+}
+
+.center-text {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.margin-top {
+  margin-top: 10px;
+}
+.width-100{
+  width: 100%;
+}
+.short-padding {
+  margin: 3px;
+}
+.btn-short-padding {
+  padding: 7px 20px;
+}
+.short-margin{
+  margin: 0px;
+}
+.long-margin{
+  margin-top:19px;
+}
+.medium-margin {
+  margin-bottom: 16px;
+}
+.medium-margin-top {
+  margin-top: 25px;
+}
+
+.padding-for-btm-personalized {
+  margin: 8px;
+  padding: 14px 15px;
+}
+
+.front-btn{
+  color: #949494; /* text color */
+  display: inline-block;
+  border-radius: 5px; /* square corners */
+  font-weight: 400;
+  letter-spacing: 1px;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.img-ppl{
+  width: 99%;
+  height: 85%;
+  background-repeat: no-repeat;
+  background-position:left top;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.set-back{
+  width: 100%;
+  height: 100%;
+}
+
+
+.right-text{
+  text-align: right;
+}
+
+.ocultar-post{
+  display: none;
+}
+
+.mostrar-post {
+  display: block;
+}
+
+.remove-link {
+  text-decoration: none;
+}
+
+.display-inline{
+  display: inline-block
+}
+.list-style{
+  list-style: none;
+}
+.post-style{ 
+  width: 90%;
+  margin: 20px auto 5px auto;
+  border: 0.5px solid gray;
+  padding: 25px 10px 5px 10px;
+  border-radius: 5px;
+  box-shadow: rgb(199, 201, 196);
+}
+
+/*Transition effect*/
+.mySlides {
+  position: absolute;
+  transition: opacity .5s ease-in;
+}
+
+.mySlides + .mySlides{ opacity: 0; }
