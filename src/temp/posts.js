@@ -1,5 +1,5 @@
-import { postContent, postContentLs, signOutFromSession, editPostInWall, changePrivacy} from '../viewController.js';
-import { deletePost } from '../services/FirebaseTools.js';
+import { postContent, postContentLs, editPostInWall} from '../viewController.js';
+import { deletePost, signOut } from '../services/FirebaseTools.js';
 
 let posts = {
   render: async() => {
@@ -58,7 +58,7 @@ let posts = {
           document.getElementById(`btn-save-content-${id}`).classList.add('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.remove('ocultar-post');
           const inputValue = document.getElementById(`input-${id}`).value;
-          editPostInWall(id, inputValue);
+          editPost(id, inputValue);
         });
       });
       // --------------------------------
@@ -84,7 +84,8 @@ let posts = {
       // --------------------------------
       // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
       document.getElementById('privacy').addEventListener('click', () => {
-        changePrivacy();
+        let privacy = document.getElementById('privacy');
+        (privacy.innerHTML === 'Público' ? privacy.innerHTML = 'Privado' : privacy.innerHTML = 'Público');
       });
     };
     // --------------------------------
@@ -94,7 +95,6 @@ let posts = {
       // validación de input vacio
       let postTxt = document.getElementById('post-content').value;
       let privacy = document.getElementById('privacy').innerHTML;
-      console.log(postTxt + privacy);
       
       if (postTxt !== '') {
         postContent(postTxt, privacy);
@@ -105,7 +105,7 @@ let posts = {
       }
     });
     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
-      signOutFromSession();
+      signOut();
     });
   },  
 };

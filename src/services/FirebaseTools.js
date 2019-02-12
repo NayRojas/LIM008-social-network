@@ -1,9 +1,7 @@
-/* global firebase */
-// --------------------------------
 // FUNCIONES PARA CREAR SESIÓN CON FB
 // con correo y contraseña
-export const signUp = (email, password) => 
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+export const signUp = (email, password) => {
+  return firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(function(event) {
       let errorCode = event.code;
       let errorMessage = event.message;
@@ -19,16 +17,13 @@ export const signUp = (email, password) =>
         throw new Error(errorMessage);
       }
     });
+};
 // con Google
 export const signUpGoogle = () => {
   let googleProvider = new firebase.auth.GoogleAuthProvider();
-
   return firebase.auth().signInWithPopup(googleProvider)
     .then(function(result) {
-      let token = result.credential.accessToken;
-      let user = result.user;
     }).catch(function(error) {
-      // Handle Errors here.
       let errorCode = error.code;
       let email = error.email;
       if (errorCode === 'auth/account-exists-with-different-credential') {
@@ -39,22 +34,9 @@ export const signUpGoogle = () => {
 // con Facebook
 export const signUpFacebook = () => {
   let facebookProvider = new firebase.auth.FacebookAuthProvider();
-
-  return firebase.auth().signInWithPopup(facebookProvider).then(function(result)/* .then(() => location.hash = '/login')*/ {
-    let token = result.credential.accessToken;
-    let user = result.user;
-  }).catch(function(error) {
-  // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
-    if (errorCode === 'auth/account-exists-with-different-credential') {
-      console.log(email);
-    }
+  return firebase.auth().signInWithPopup(facebookProvider).then(function(result) {
   });
 };
-  
 // --------------------------------
 // FUNCIONES PARA INICIAR SESIÓN CON FB
 // iniciar sesión con correo y contraseña
@@ -77,44 +59,19 @@ export const signIn = (email, password) =>
     });
 // iniciar sesión con facebook
 export const signInFacebook = () => {
-  let facebookProvider = new firebase.auth.FacebookAuthProvider();
-
-  return firebase.auth().signInWithPopup(facebookProvider)
-    .catch(function(error) {
-      let errorMessage = error.message;
-      console.log(errorMessage);
-    });
+  const facebookProvider = new firebase.auth.FacebookAuthProvider();
+  return firebase.auth().signInWithPopup(facebookProvider);
 };
-  
 // iniciar sesión con google
 export const signInGoogle = () => {
-  let googleProvider = new firebase.auth.GoogleAuthProvider();
-
-  firebase.auth().signInWithPopup(googleProvider).then(function(result) {
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-      let token = result.credential.accessToken;
-      // The signed-in user info.
-      let user = result.user;
-    // ...
-    }).catch(function(error) {
-    // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      let email = error.email;
-      let credential = error.credential;
-      if (errorCode === 'auth/account-exists-with-different-credential') {
-        console.log(email);
-      }
-    });
-}
-  
-// --------------------------------
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(googleProvider);
+};
 // FUNCIONES PARA GUARDAR Y CREAR POSTS
 // guarda datos en fb
-export const postContentSafe = (postTxt, privacy) => {
-  let user = firebase.auth().currentUser.uid;
+export const postContentSafe = (postTxt, uidUser, privacy) => {
   return firebase.firestore().collection('Posts').add({
-    uidUser: user,
+    uidUser: uidUser,
     descripcion: postTxt,
     likes: 0,
     state: privacy,
@@ -136,19 +93,16 @@ export const obtenerDatosFirebase = (callback) => {
 // Función para editar un post 
 export const editPost = (postId, inputValue) => {
   let currentPost = firebase.firestore().collection('Posts').doc(postId);
-  currentPost.update({
+  return currentPost.update({
     descripcion: inputValue,
   });
 };
 // Función para eliminar un post desde Firebase
 export const deletePost = (postId) => {
-  firebase.firestore().collection('Posts').doc(postId).delete();
+  return firebase.firestore().collection('Posts').doc(postId).delete();
 };
 // --------------------------------
 // FUNCION PARA SALIR DE SESION 
 export const signOut = () => {
-  firebase.auth().signOut().then(() => location.hash = '/login')
-    .catch(function(error) {
-      console.log(error, 'Signed Out');
-    });
+  return firebase.auth().signOut().then(() => location.hash = '/login');
 };

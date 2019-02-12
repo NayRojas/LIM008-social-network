@@ -1,4 +1,3 @@
-/* global firebase */
 // configurando firebase mock
 const firebasemock = require('firebase-mock');
 const mockauth = new firebasemock.MockFirebase();
@@ -17,6 +16,9 @@ global.firebase = firebasemock.MockFirebaseSdk(
 import { signIn } from '../src/services/FirebaseTools.js';
 
 describe('signIn', () => {
+  it('debería ser una función', () => {
+    expect(typeof signIn).toBe('function');
+  });
   it('Debería poder iniciar sesion', () => {
     return signIn('p5@g.com', 'aloha123')
       .then((user) => {

@@ -4,17 +4,19 @@ const fixtureData = {
   __collection__: {
     Posts: {
       __doc__: {
-        aloha123: {
-          uidUser: 'abc',
+        p5CSUf9BvNfsdSuylmN6: 
+        {
           descripcion: 'el post fue guardado',
           likes: 0,
-          state: 'Privado'
+          state: 'Privado',
+          uidUser: '0G5q03Wm2AWNgHfjTlLbJi3P8xA3',
         },
-        aloha124: {
-          uidUser: 'bcd',
+        ZoxPaIl9CFI0hUvRN1Fo: 
+        {
           descripcion: 'agregando varios post',
-          likes: 1,
-          state: 'Publico'
+          likes: 0,
+          state: 'Publico',
+          uidUser: '0G5q03Wm2AWNgHfjTlLbJi3P8xA3',
         },
       }
     }
@@ -26,33 +28,41 @@ global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled
 import { postContentSafe, obtenerDatosFirebase, deletePost, editPost } from '../src/services/FirebaseTools.js';
 
 describe('postContentSafe', () => {
-  it('debería poder agregar un post', () => {
-    return postContentSafe('el post fue guardado', 'Privado')
+  it('debería ser una función', () => {
+    expect(typeof postContentSafe).toBe('function');
+  });
+  it('debería ser una función', () => {
+    expect(typeof deletePost).toBe('function');
+  });
+  it('debería ser una función', () => {
+    expect(typeof editPost).toBe('function');
+  });
+  it('debería poder agregar un post', (done) => {
+    return postContentSafe('el post fue guardado', '0G5q03Wm2AWNgHfjTlLbJi3P8xA3', 'Privado')
       .then(() => obtenerDatosFirebase(
         (data) => {
-          const result = data.find((post) => post.descripcion === 'el post fue guardado' || post.state === 'Privado');
+          const result = data.find((post) => post.descripcion === 'el post fue guardado');
           expect(result.descripcion).toBe('el post fue guardado');
-          expect(result.state).toBe('Privado');
           done();
         }
       ));
   });
   it('debería poder eliminar un post', (done) => {
-    return deletePost('aloha124')
+    return deletePost('p5CSUf9BvNfsdSuylmN6')
       .then(() => obtenerDatosFirebase(
         (data) => {
-          const result = data.find((post) => post.id === 'aloha124');
+          const result = data.find((post) => post.id === 'p5CSUf9BvNfsdSuylmN6');
           expect(result).toBe(undefined);
           done();
         }
       ));
   });
   it('debería poder editar un post', () => {
-    return editPost('aloha124', 'Post editado :D')
+    return editPost('ZoxPaIl9CFI0hUvRN1Fo', 'Post editado :D')
       .then(() => obtenerDatosFirebase(
         (data) => {
-          const result = data.find((post) => post.id === 'aloha124');
-          expect(result).toBe( 'Post editado :D');
+          const result = data.find((post) => post.id === 'ZoxPaIl9CFI0hUvRN1Fo');
+          expect(result).toBe('Post editado :D');
           done();
         }
       ));
