@@ -89,8 +89,16 @@ La plataforma para su lanzamiento en primera etapa contará con la funcionalidad
 
 El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
 
+#### Prototipo de Baja Fidelidad
+![proto1](http://subirimagen.me/uploads/20190212064358.png)
+
 #### Prototipo Figma
-https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
+
+* Versión desktop
+
+<p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8a5ffeb33862614031ac990705cc58e2.gif" width="300" height="213" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a></p>
+
+* Versión Mobile First
 
 <p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8ceefaf12bfa321c6b50194f735d31f6.gif" width="300" height="534" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a> </p>
 
@@ -121,23 +129,22 @@ Aquí colocaremos las funciones principales y por que?
 
    https://firebase.google.com/?hl=es-419
 
-  ### UX
+  ### UX Design
    
   #### Ideación
+
   #### Benchmark
   Nuestras fuentes de inspiración fueron dos páginas en especial:
-  ##### Instagram
-<p  align ="center"
-   <img src="Css/img/insta.png"  >
-   <img src="Css/img/antesdeeva.png" ></p>
+
+![img insta](http://subirimagen.me/uploads/20190212065538.png)
 
   #### Paleta de colores
-<p  align ="center"
-   <img src="Css/img/palette-1.jpg"> </p>
+
+![img palette](http://subirimagen.me/uploads/20190212065414.jpg)
 
   #### Tipografía
 
-  
+
   #### Iteración del producto
   
 

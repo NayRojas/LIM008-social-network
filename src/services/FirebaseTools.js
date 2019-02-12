@@ -1,73 +1,29 @@
 // --------------------------------
 // FUNCIONES PARA CREAR SESIÓN CON FB
 // con correo y contraseña
-export const signUp = (email, password) => 
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .catch(function(event) {
-      let errorCode = event.code;
-      let errorMessage = event.message;
-      console.log(errorMessage);
-      if (errorCode === 'auth/invalid-email') {
-        document.getElementById('error-messase-invalid-email').innerHTML = '¡Hey! Ingresa un correo electronico válido';
-        throw new Error(errorMessage);
-      } else if (errorCode === 'auth/weak-password') {
-        document.getElementById('error-message-password').innerHTML = 'Tu contraseña debe tener 6 carácteres :)';
-        throw new Error(errorMessage);
-      } else if (errorCode === 'auth/email-already-in-use') { 
-        document.getElementById('error-messase-invalid-email').innerHTML = '¡Ups! Este correo esta en uso';
-        throw new Error(errorMessage);
-      }
-    });
+export const signUp = (email, password) => {
+  return firebase.auth().createUserWithEmailAndPassword(email, password);
+};
 // con Google
-let googleProvider = new firebase.auth.GoogleAuthProvider();
-export const signUpGoogle = () => 
-  firebase.auth().signInWithPopup(googleProvider).then(function(result) {
-    let token = result.credential.accessToken;
-    let user = result.user;
-  }).catch(function(error) {
-  // Handle Errors here.
-    let errorCode = error.code;
-    let email = error.email;
-    if (errorCode === 'auth/account-exists-with-different-credential') {
-      console.log(email);
-    }
-  });
+export const signUpGoogle = () => {
+  let googleProvider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(googleProvider)
+    .then(function(result) {
+    });
+};
 // con Facebook
-let facebookProvider = new firebase.auth.FacebookAuthProvider();
-export const signUpFacebook = () => 
-  firebase.auth().signInWithPopup(facebookProvider).then(function(result)/* .then(() => location.hash = '/login')*/ {
-    let token = result.credential.accessToken;
-    let user = result.user;
-  }).catch(function(error) {
-  // Handle Errors here.
-    let errorCode = error.code;
-    let errorMessage = error.message;
-    let email = error.email;
-    let credential = error.credential;
-    if (errorCode === 'auth/account-exists-with-different-credential') {
-      console.log(email);
-    }
+export const signUpFacebook = () => {
+  const facebookProvider = new firebase.auth.FacebookAuthProvider();
+  return firebase.auth().signInWithPopup(facebookProvider).then(function(result) {
   });
+};
 // --------------------------------
 // FUNCIONES PARA INICIAR SESIÓN CON FB
 // iniciar sesión con correo y contraseña
-export const signIn = (email, password) => 
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .catch(function(event) {
-      let errorCode = event.code;
-      let errorMessage = event.message;
-      console.log(errorMessage);
-      if (errorCode === 'auth/invalid-email') {
-        document.getElementById('error-messase-invalid-email').innerHTML = '¡Hey! Ingresa un correo electronico válido';
-        throw new Error(errorMessage);
-      } else if (errorCode === 'auth/wrong-password') {
-        document.getElementById('error-message-password').innerHTML = 'Tu contraseña es incorrecta :(';
-        throw new Error(errorMessage);
-      } else if (errorCode === 'auth/user-not-found') { 
-        document.getElementById('error-messase-invalid-email').innerHTML = '¡Ups! Este correo no esta registrado';
-        throw new Error(errorMessage);
-      }
-    });
+export const signIn = (email, password) => {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+};
+  
 // iniciar sesión con facebook
 export const signInFacebook = () => 
   firebase.auth().signInWithPopup(facebookProvider)
@@ -112,7 +68,6 @@ export const obtenerDatosFirebase = (callback) => {
         posts.push({id: doc.id, ...doc.data()});
       });
       callback(posts);
-      // console.log(posts);
     });
 };
 // Función para editar un post 
@@ -134,3 +89,8 @@ export const signOut = () => {
       console.log(error, 'Signed Out');
     });
 };
+export const quieroLike = (id, counter) => {
+  firebase.firestore().collection('Posts').doc(id).update({
+    'likes': counter
+  });
+  };
