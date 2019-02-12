@@ -127,14 +127,15 @@ Aquí colocaremos las funciones principales y por que?
   ### UX
    
   #### Ideación
+
   #### Benchmark
   Nuestras fuentes de inspiración fueron dos páginas en especial:
-   <img src="Css/img/insta.png"  >
-   <img src="Css/img/antesdeeva.png" >
+
+![img insta](http://subirimagen.me/uploads/20190212065538.png)
 
   #### Paleta de colores
 
-   <img src="Css/img/palette-1.jpg"> 
+![img palette](http://subirimagen.me/uploads/20190212065414.jpg)
 
   #### Tipografía
 
