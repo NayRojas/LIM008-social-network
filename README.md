@@ -1,6 +1,6 @@
 # Red Social, ![Eva](https://nayrojas.github.io/LIM008-social-network/src/)
 
- ![Muro](http://picasion.com/i/2w1aY)
+ ![Muro](http://i.picasion.com/pic88/114a634db3b4b9537fc1304c5277fa42.gif)
 
 [Prototipo Interactivo](https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=79%3A0)
 
