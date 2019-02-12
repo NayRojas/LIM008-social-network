@@ -19,10 +19,10 @@ export const signUpOnSubmit = (email, password) => {
     });;
 };
 export const signUpWithGoogle = () => {
-  return signUpGoogle().then(() => location.hash = '/post');
+  signUpGoogle().then(() => location.hash = '/post');
 };
 export const signUpWithFacebook = () => {
-  return signUpFacebook().then(() => location.hash = '/post');
+  signUpFacebook().then(() => location.hash = '/post');
 };
 // --------------------------------
 // FUNCION DE INICIAR SESIÓN
@@ -43,20 +43,36 @@ export const signInOnSubmit = (email, password) => {
   });
 };
 export const signInWithGoogle = () => {
-  return signInGoogle().then(() => location.hash = '/post');
+  signInGoogle().then(() => location.hash = '/post');
 };
 export const signInWithFacebook = () => {
-  return signInFacebook().then(() => location.hash = '/post');
+  signInFacebook().then(() => location.hash = '/post');
+  console.log('entro');
+};
+// --------------------------------
+// FUNCION DE CERRAR SESIÓN
+export const signOutFromSession = () => {
+  signOut();
 };
 // --------------------------------
 // FUNCIONES DE EDITAR POST 
+export const editPostInWall = (rowId, inputValue) => {
+  editPost(rowId, inputValue);
+};
 // Sacar coleccion de posts de firebase
 export const postContent = (postTxt, privacy) => {
-  let uidUser = firebase.auth().currentUser.uid;
-  return postContentSafe(postTxt, uidUser, privacy);
+  postContentSafe(postTxt, privacy);
 };
 // Sacar coleccion de posts de firebase
 export const postContentLs = (callback) => {
-  return obtenerDatosFirebase(callback);
+  obtenerDatosFirebase(callback);
 };
-
+// Cambia la seleccion de privacidad del post a compartir 
+export const changePrivacy = () => {
+  let privacy = document.getElementById('privacy');
+  if (privacy.innerHTML === 'Público') {
+    privacy.innerHTML = 'Privado';
+  } else {
+    privacy.innerHTML = 'Público'; 
+  }
+};
