@@ -99,14 +99,11 @@ https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
   - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
   - Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
 
-(AQUI VA GIF DE LA CREACION DE CUENTA)
 
 * Iniciar sesión:
   - Con usuario y contraseña: los datos almacenados en esta acción se validan contra los datos en Firebase para validar si el usuario existe, levantando las alertas cuando no se encuentre registrado, la contraseña sea invalidad o la credencial no concuerde con el email ingresado. 
   - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
   - Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
-
-(AQUI VA GIF DEL INICIO DE SESIÓN)
 
 * Publicar **posts**:
   - A traves de un area de texto el usuario puede compartir un texto.
@@ -115,22 +112,32 @@ https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
   - **Elminiar**: podrá elminar definitivamente un post de la lista pública o privada.
   - **Me gusta**: podrá manifestar su gusto por el post de su preferencia al dar clic. 
 
-(AQUI VA GIF DE LAS OPCIONES DEL POST)
-
-  ### Funciones principales
+ ### Funciones principales
 
 Aquí colocaremos las funciones principales y por que?
 
   ### Modelado de datos
+  Para lograr la obtención de datos de ingresos personales , tales como : registro con email , Google & Facebook. Se utilizó Firebase. Logrando así que la aplicación las interacciones de editar , eliminar , publicar y dar "Me gusta" en tiempo real. 
 
-Aquí colocaremos como organizamos los datos en firebase y por que?
+   https://firebase.google.com/?hl=es-419
 
   ### UX
-
+   
   #### Ideación
   #### Benchmark
+  Nuestras fuentes de inspiración fueron dos páginas en especial:
+  ##### Instagram
+<p  align ="center"
+   <img src="Css/img/insta.png"  >
+   <img src="Css/img/antesdeeva.png" ></p>
+
   #### Paleta de colores
+<p  align ="center"
+   <img src="Css/img/palette-1.jpg"> </p>
+
   #### Tipografía
+
+  
   #### Iteración del producto
   
 
