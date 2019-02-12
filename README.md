@@ -90,7 +90,7 @@ La plataforma para su lanzamiento en primera etapa contará con la funcionalidad
 El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
 
 #### Prototipo de Baja Fidelidad
-![proto1] (http://subirimagen.me/uploads/20190212064358.png)
+![proto1](http://subirimagen.me/uploads/20190212064358.png)
 
 #### Prototipo Figma
 https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
