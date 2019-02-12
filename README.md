@@ -124,7 +124,7 @@ Aquí colocaremos las funciones principales y por que?
 
    https://firebase.google.com/?hl=es-419
 
-  ### UX
+  ### UX Design
    
   #### Ideación
 
