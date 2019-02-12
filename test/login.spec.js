@@ -1,3 +1,4 @@
+/* global firebase */
 // configurando firebase mock
 const firebasemock = require('firebase-mock');
 const mockauth = new firebasemock.MockFirebase();
@@ -21,5 +22,5 @@ describe('signIn', () => {
       .then((user) => {
         expect(user.email).toBe('p5@g.com');
       });
-  });
+  }); 
 });

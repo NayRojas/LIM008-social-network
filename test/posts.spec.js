@@ -5,11 +5,15 @@ const fixtureData = {
     Posts: {
       __doc__: {
         aloha123: {
+          uidUser: 'abc',
           descripcion: 'el post fue guardado',
+          likes: 0,
           state: 'Privado'
         },
         aloha124: {
+          uidUser: 'bcd',
           descripcion: 'agregando varios post',
+          likes: 1,
           state: 'Publico'
         },
       }
@@ -23,7 +27,7 @@ import { postContentSafe, obtenerDatosFirebase, deletePost, editPost } from '../
 
 describe('postContentSafe', () => {
   it('debería poder agregar un post', () => {
-    return postContentSafe('el post fue guardado')
+    return postContentSafe('el post fue guardado', 'Privado')
       .then(() => obtenerDatosFirebase(
         (data) => {
           const result = data.find((post) => post.descripcion === 'el post fue guardado' || post.state === 'Privado');
@@ -44,13 +48,11 @@ describe('postContentSafe', () => {
       ));
   });
   it('debería poder editar un post', () => {
-    const postToEdit = 'Editando un post';
-    const editedPost = 'Post editado :D';
-    return editPost('aloha124', postToEdit)
+    return editPost('aloha124', 'Post editado :D')
       .then(() => obtenerDatosFirebase(
         (data) => {
           const result = data.find((post) => post.id === 'aloha124');
-          expect(result).toBe(editedPost);
+          expect(result).toBe( 'Post editado :D');
           done();
         }
       ));
