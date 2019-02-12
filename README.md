@@ -89,6 +89,12 @@ La plataforma para su lanzamiento en primera etapa contará con la funcionalidad
 
 El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
 
+#### Prototipo Figma
+https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
+
+
+https://media.giphy.com/media/9Y5k7nPenZc0C8gaAi/200w_d.gif
+
 * Crear cuenta:
   - Con usuario y contraseña: los datos almacenados en esta acción se guardan en la sección de autenticación de Firebase, levantando las alertas cuando ambos valores no cumplan con los estandares requeridos. 
   - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
