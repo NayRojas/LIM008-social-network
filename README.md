@@ -94,13 +94,11 @@ El diseño y proyección de la red, en su primera fase, esta pensado en crear un
 
 #### Prototipo Figma
 
-Versión Mobile First
-https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60 
-
-Versión desktop
-https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=79%3A0
+* Versión desktop
 
 <p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8a5ffeb33862614031ac990705cc58e2.gif" width="300" height="213" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a></p>
+
+* Versión Mobile First
 
 <p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8ceefaf12bfa321c6b50194f735d31f6.gif" width="300" height="534" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a> </p>
 
