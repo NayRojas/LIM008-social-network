@@ -89,6 +89,19 @@ La plataforma para su lanzamiento en primera etapa contará con la funcionalidad
 
 El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
 
+#### Prototipo de Baja Fidelidad
+![proto1](http://subirimagen.me/uploads/20190212064358.png)
+
+#### Prototipo Figma
+
+* Versión desktop
+
+<p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8a5ffeb33862614031ac990705cc58e2.gif" width="300" height="213" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a></p>
+
+* Versión Mobile First
+
+<p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8ceefaf12bfa321c6b50194f735d31f6.gif" width="300" height="534" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a> </p>
+
 * Crear cuenta:
   - Con usuario y contraseña: los datos almacenados en esta acción se guardan en la sección de autenticación de Firebase, levantando las alertas cuando ambos valores no cumplan con los estandares requeridos. 
   - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.

@@ -1,5 +1,5 @@
-import { postContent, postContentLs, editPostInWall} from '../viewController.js';
-import { deletePost, signOut } from '../services/FirebaseTools.js';
+import { postContent, postContentLs} from '../viewController.js';
+import { editPost, deletePost, signOut } from '../services/FirebaseTools.js';
 
 let posts = {
   render: async() => {
@@ -20,7 +20,6 @@ let posts = {
     return view;
   },
   applyTemplate: (row, uidUser) => {
-    // --------------------------------
     // TEMPLATE PARA LISTA DE PUBLICACIONES 
     return `
     <div id="${row.id}">
