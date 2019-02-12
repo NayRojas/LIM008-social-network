@@ -20,20 +20,7 @@ let posts = {
     return view;
   },
   applyTemplate: (row, uidUser) => {
-    //  ${row.state === 'Publico' ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id}">${row.descripcion}</li>` : (uidUser === row.uidUser ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id}">${row.descripcion}</li>` : null) }
-    // ${row.state === 'Publico' ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post">` : (uidUser === row.uidUser ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post">` : null) }
-    // ${uidUser === row.uidUser  ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id}">${row.descripcion}</li>` : null}
-    // ${row.state === 'Privado' || uidUser === row.uidUser ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post">` : null}
-
-    // <li id= "${row.id}" data-state= "${row.state}" class= "${row.id} post-style" >${row.descripcion}</li>
-    // <input class="ocultar-post post-style" id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" ></input>
-    // 
-    // Estas fueron las ultimas líneas con las cuales intente
-    //  ${row.state === 'Publico' ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id}">${row.descripcion}</li>` : (uidUser === row.uidUser ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id}">${row.descripcion}</li>` : null) }
-    // ${row.state === 'Publico' ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post">` : (uidUser === row.uidUser ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post">` : null) }
-     
-    // --------------------------------
-    // TEMPLATE PARA LISTA DE PUBLICACIONES 
+        // TEMPLATE PARA LISTA DE PUBLICACIONES 
     return `
     <div id="${row.id}">
     ${row.state === 'Público' ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id} post-style">${row.descripcion}</li>` : 
