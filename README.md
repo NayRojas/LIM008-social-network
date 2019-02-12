@@ -92,8 +92,7 @@ El diseño y proyección de la red, en su primera fase, esta pensado en crear un
 #### Prototipo Figma
 https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
 
-
-https://media.giphy.com/media/9Y5k7nPenZc0C8gaAi/200w_d.gif
+<p  align ="center" <a href="http://picasion.com/"><img src="http://i.picasion.com/pic88/8ceefaf12bfa321c6b50194f735d31f6.gif" width="300" height="534" border="0" alt="http://picasion.com/" /></a><br /><a href="http://picasion.com/">http://picasion.com/</a> </p>
 
 * Crear cuenta:
   - Con usuario y contraseña: los datos almacenados en esta acción se guardan en la sección de autenticación de Firebase, levantando las alertas cuando ambos valores no cumplan con los estandares requeridos. 
