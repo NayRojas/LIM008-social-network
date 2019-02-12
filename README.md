@@ -89,6 +89,9 @@ La plataforma para su lanzamiento en primera etapa contará con la funcionalidad
 
 El diseño y proyección de la red, en su primera fase, esta pensado en crear una interfaz que permita realizar las acciones básicas propias de este tipo de plataforma:
 
+#### Prototipo de Baja Fidelidad
+
+
 #### Prototipo Figma
 https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=71%3A60
 
@@ -126,18 +129,16 @@ Aquí colocaremos las funciones principales y por que?
   #### Ideación
   #### Benchmark
   Nuestras fuentes de inspiración fueron dos páginas en especial:
-  ##### Instagram
-<p  align ="center"
    <img src="Css/img/insta.png"  >
-   <img src="Css/img/antesdeeva.png" ></p>
+   <img src="Css/img/antesdeeva.png" >
 
   #### Paleta de colores
-<p  align ="center"
-   <img src="Css/img/palette-1.jpg"> </p>
+
+   <img src="Css/img/palette-1.jpg"> 
 
   #### Tipografía
 
-  
+
   #### Iteración del producto
   
 
