@@ -1,11 +1,11 @@
 import { postContent, postContentLs, signOutFromSession, editPostInWall, changePrivacy} from '../viewController.js';
-import { deletePost } from '../services/FirebaseTools.js';
+import { editPost , deletePost , quieroLike} from '../services/FirebaseTools.js';
 
 let posts = {
-  render: async() => {
+  render: async(postInputValue) => {
     // --------------------------------
     // TEMPLATE DE MURO
-    let view =
+    let view = 
     `<div class="container">
     <h1 class="rubik-font">Bienvenida </h1>
     <p class="rubik-font">¡Empoderate hoy!</p>
@@ -20,7 +20,7 @@ let posts = {
     return view;
   },
   applyTemplate: (row, uidUser) => {
-        // TEMPLATE PARA LISTA DE PUBLICACIONES 
+    // TEMPLATE PARA LISTA DE PUBLICACIONES 
     return `
     <div id="${row.id}">
     ${row.state === 'Público' ? `<li id= "${row.id}" data-state= "${row.state}" class= "${row.id} post-style">${row.descripcion}</li>` : 
@@ -30,9 +30,12 @@ let posts = {
     (uidUser === row.uidUser ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post post-style">` : '') }
 
     ${uidUser === row.uidUser ? `<a id="btn-to-delete-content-${row.id}" data-id="${row.id}" class="btn-delete">Eliminar</a>` : '' }
-    ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class="btn-edit">Editar</a>` : '' }
+    ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>` : '' }
+    ${uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}"class='fa fa-heart-o btn-like'> </a> ` : ''}
+    ${uidUser === row.uidUser ? `<p id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes}</p> ` : ''}
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
-    </div>`;
+    </div>
+    `;
   },
   
   after_render: () => {
@@ -50,6 +53,21 @@ let posts = {
       const botonesEditar = document.querySelectorAll('.btn-edit');
       const botonesGuardar = document.querySelectorAll('.btn-save');
       const buttonsDelete = document.querySelectorAll('.btn-delete');
+      const buttonLike = document.querySelectorAll('.btn-like');
+      const buttonContador = document.querySelectorAll('.btn-count');
+      console.log(buttonLike);
+      console.log(buttonContador);
+      let counter = 0 ;
+      buttonLike.forEach((btnheart) => {
+        const id = btnheart.dataset.id;
+        btnheart.addEventListener('click', () => {
+          console.log('me diste click');
+          counter += 1 ;
+          buttonContador.innerHTML = counter;
+          quieroLike(id, counter);
+        });
+      });
+
       // GUARDAR - Evento para guardar un post
       botonesGuardar.forEach((botonGuardar) => {
         const id = botonGuardar.dataset.id;
@@ -57,7 +75,8 @@ let posts = {
           document.getElementById(`btn-save-content-${id}`).classList.add('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.remove('ocultar-post');
           const inputValue = document.getElementById(`input-${id}`).value;
-          editPostInWall(id, inputValue);
+          console.log(inputValue);
+          editPost(id, inputValue);
         });
       });
       // --------------------------------
@@ -66,7 +85,11 @@ let posts = {
         const id = buttonDelete.dataset.id;
         buttonDelete.addEventListener('click', () => {
           document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
+          // const showModal = 
+
+
           deletePost(id);
+          // return showModal;
         });
       });
       // --------------------------------
@@ -78,14 +101,20 @@ let posts = {
           document.getElementById(id).classList.add('ocultar-post');
           document.getElementById(`btn-save-content-${id}`).classList.remove('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.add('ocultar-post');
+          // editPostInWall(id);
         });
       });
-      // --------------------------------
-      // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
-      document.getElementById('privacy').addEventListener('click', () => {
-        changePrivacy();
-      });
     };
+
+
+
+    //   // --------------------------------
+    //   // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
+    // document.getElementById('privacy').addEventListener('click', () => {
+    //   changePrivacy();
+    // });
+  
+    
     // --------------------------------
     // PINTAR POSTS DE FB - Evento para editar posts
     postContentLs(pintar);

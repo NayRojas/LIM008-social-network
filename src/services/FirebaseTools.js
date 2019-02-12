@@ -134,3 +134,8 @@ export const signOut = () => {
       console.log(error, 'Signed Out');
     });
 };
+export const quieroLike = (id, counter) => {
+  firebase.firestore().collection('Posts').doc(id).update({
+    'likes': counter
+  });
+  };

@@ -4,8 +4,6 @@ let initPage = {
     let view = `
     <div class="img-ppl">
       <img src="Css/img/background3.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">
-      <img src="Css/img/background2.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">
-      <img src="Css/img/background1.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">
       </div>
       <div class="btn-div btn-bottom">
         <a href="#/Register"  id="btn-register" class=" btn-init  btns-beside front-btn">

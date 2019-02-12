@@ -1,3 +1,4 @@
+
 import { signUpOnSubmit, signUpWithGoogle, signUpWithFacebook, postContentLs } from '../viewController.js';
 
 let register = {
