@@ -137,5 +137,5 @@ export const signOut = () => {
 export const quieroLike = (id, counter) => {
   firebase.firestore().collection('Posts').doc(id).update({
     'likes': counter
-  });
-  };
+  }); 
+};

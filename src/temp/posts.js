@@ -1,5 +1,5 @@
 import { postContent, postContentLs, signOutFromSession, editPostInWall, changePrivacy} from '../viewController.js';
-import { editPost , deletePost , quieroLike} from '../services/FirebaseTools.js';
+import { editPost, deletePost, quieroLike} from '../services/FirebaseTools.js';
 
 let posts = {
   render: async(postInputValue) => {
@@ -31,8 +31,8 @@ let posts = {
 
     ${uidUser === row.uidUser ? `<a id="btn-to-delete-content-${row.id}" data-id="${row.id}" class="btn-delete">Eliminar</a>` : '' }
     ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>` : '' }
-    ${uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}"class='fa fa-heart-o btn-like'> </a> ` : ''}
-    ${uidUser === row.uidUser ? `<p id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes}</p> ` : ''}
+    ${uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : '' }
+    ${uidUser === row.uidUser ? `<b <a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> </b> ` : '' }
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
     </div>
     `;
@@ -57,6 +57,9 @@ let posts = {
       const buttonContador = document.querySelectorAll('.btn-count');
       console.log(buttonLike);
       console.log(buttonContador);
+ 
+      // LIKES - Evento para dar likes
+
       let counter = 0 ;
       buttonLike.forEach((btnheart) => {
         const id = btnheart.dataset.id;
@@ -64,10 +67,10 @@ let posts = {
           console.log('me diste click');
           counter += 1 ;
           buttonContador.innerHTML = counter;
+   
           quieroLike(id, counter);
         });
       });
-
       // GUARDAR - Evento para guardar un post
       botonesGuardar.forEach((botonGuardar) => {
         const id = botonGuardar.dataset.id;
@@ -105,7 +108,6 @@ let posts = {
         });
       });
     };
-
 
 
     //   // --------------------------------
