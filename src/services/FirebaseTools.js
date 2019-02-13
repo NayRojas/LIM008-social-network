@@ -18,7 +18,7 @@ export const signUp = (email, password) =>
         throw new Error(errorMessage);
       }
     });
-// con Google
+// Log in con Google
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 export const signUpGoogle = () => 
   firebase.auth().signInWithPopup(googleProvider).then(function(result) {
@@ -32,7 +32,7 @@ export const signUpGoogle = () =>
       console.log(email);
     }
   });
-// con Facebook
+// Log in con Facebook
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 export const signUpFacebook = () => 
   firebase.auth().signInWithPopup(facebookProvider).then(function(result)/* .then(() => location.hash = '/login')*/ {
