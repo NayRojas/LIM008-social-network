@@ -18,13 +18,13 @@ let login = {
         <p id="error-message-password" class="error-message short-padding karla-font"></p>
         <div class= "width-100">
           <a  id="button-to-log-in" type="button" class="button center-text purple-back">Iniciar sesión</a>
-          <p class="center-text karla-font short-padding">¿Olvidaste tu<a href="#" class="link-blue">contraseña?</a></p>
+          <p class="psw right-text karla-font short-padding">¿Olvidaste tu<a href="#" class="link-blue">contraseña?</a></p>
           <p id="error-missing-fields-on-registration" class="error-message center-text short-padding karla-font"></p>
         </div>
         <p class="center-text short-padding karla-font medium-margin-top"> - Continúa con - </p>
         <div class= "btn-div">
-        <a  id="button-to-log-in-with-google" type="button" class="btn-short-padding button center-text icon-google white red-back two-button btns-beside" >Google</a>
-        <a  id="button-to-log-in-with-facebook" type="button" class="btn-short-padding button center-text icon-facebook white blue-back two-button btns-beside" >Facebook</a>
+            <a id="button-to-log-in-with-google" type="button" class="button center-text icon-google white red-back two-button btns-beside">Google</button>
+            <a id="button-to-log-in-with-facebook" type="button" class=" center-text icon-facebook white blue-back two-button btns-beside">Facebook</button>
           </div>
         
     </div>
@@ -59,3 +59,4 @@ let login = {
 };
 
 export default login;
+
