@@ -38,6 +38,8 @@ let posts = {
     `;
   },
   
+
+  
   after_render: () => {
     // --------------------------------
     // FUNCION PARA PINTAR TEMPLATE DE LISTA - función para recorrer template de lista de publicaciones
@@ -91,7 +93,7 @@ let posts = {
           // const showModal = 
 
 
-          deletePost(id);
+             deletePost(id);
           // return showModal;
         });
       });
@@ -109,15 +111,29 @@ let posts = {
       });
     };
 
+//     postContentLs(pintar);
+//     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
+//       let postTxt = document.getElementById('post-content').value;
+//       postContent(postTxt);
+//       document.getElementById('post-content').value = '';
+//     });
+//     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
+//       console.log('entro al evento');
+//       signOutFromSession();
+//     });
+//   }
+// };
 
-    //   // --------------------------------
-    //   // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
-    // document.getElementById('privacy').addEventListener('click', () => {
-    //   changePrivacy();
-    // });
+// export default posts;
+   
+
+      // --------------------------------
+      // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
+    document.getElementById('privacy').addEventListener('click', () => {
+      changePrivacy();
+    });
   
     
-    // --------------------------------
     // PINTAR POSTS DE FB - Evento para editar posts
     postContentLs(pintar);
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
