@@ -4,6 +4,8 @@ import { signInOnSubmit, signInWithFacebook, signInWithGoogle } from '../viewCon
 let login = {
   render: async() => {
     let view = `
+    <form class= "template-register rps-design-form" >
+
     <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
     <form class="auth">
       <div class="container">
@@ -18,7 +20,7 @@ let login = {
         <p id="error-message-password" class="error-message short-padding karla-font"></p>
         <div class= "width-100">
           <a  id="button-to-log-in" type="button" class="button center-text purple-back">Iniciar sesión</a>
-          <p class="psw right-text karla-font short-padding">¿Olvidaste tu<a href="#" class="link-blue">contraseña?</a></p>
+          <p class="psw right-text justify-center karla-font short-padding">¿Olvidaste tu<a href="#" class="link-blue">contraseña?</a></p>
           <p id="error-missing-fields-on-registration" class="error-message center-text short-padding karla-font"></p>
         </div>
         <p class="center-text short-padding karla-font medium-margin-top"> - Continúa con - </p>
@@ -31,6 +33,8 @@ let login = {
     </div>
       <p class="center-text karla-font long-margin">¿No tienes cuenta?, <a id="sign-up-from-log-in" class="link-blue">Registrate aquí.</a></p>
     </form>
+    </form>
+
           `;
     return view;
   },

@@ -3,7 +3,8 @@ import { signUpOnSubmit, signUpWithGoogle, signUpWithFacebook } from '../viewCon
 let register = {
   render: async() => {
     let view = `
-    <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
+        <form class= "template-register rps-design-form" >
+   <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
     <form class="auth">
       <div class="container">
         <div class="gray-div">
@@ -29,7 +30,16 @@ let register = {
         
     </div>
       <p class="center-text karla-font short-margin long-margin">¿Ya tienes cuenta?, <a id="log-in-from-create-user" href="#log-in-screen"  class="link-blue">Inicia sesión.</a></p>
-    </form>`;
+    </form>
+    </form>
+
+
+
+    
+ 
+    
+    
+    `;
     return view;
   },
   after_render: async() => {

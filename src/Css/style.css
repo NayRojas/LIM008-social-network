@@ -283,23 +283,73 @@ input:invalid {
   height: 100%;
   overflow: hidden;
 }
+.set{
+  display: none;
+  }
+.slid{
+    display: none;
 
+  }
 .mySlides + .mySlides{ opacity: 0; }
 
- 
 @media only screen and  (min-width: 800px)  { 
+
+  /* Estilos para la página de inicio */
   * {
     box-sizing: border-box;
     font-family: segoe UI;
     margin:0; 
     padding:0;
   }
-.container-init{
+  .container-init{
+    display: none;
+  }
+  .slid{
+    display: block;
+
+  }
+ 
+.template-rps{
 width: 50%;
 float: right;
-  height: 100%;
-  justify-content: center;
-  background: #f8f7fa;
+  align-items: center;
+  /* background: #f8f7fa; */
+}
+.form-init{
+  width:70%;
+  margin:auto;
+  max-width: 350px;
+  padding-top:90px;
+
+}
+.logo {
+  margin: 16px auto;
+}
+h1 {
+  color:rgb(13, 8, 15);
+   font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.btn-rps {
+  padding-top:30px;
+}
+.btn-init {
+background:#9150E7;
+color:#ffff;
+border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  cursor: pointer;
+      line-height: 20px;
+
 }
   #slide {
   float: left;
@@ -307,15 +357,31 @@ float: right;
   height: 100%;
   display: block;
     }
-
-    .set-back{
-    display:none;
+  .set-back{
+   display:none;
   }
-
+  
 } 
+.justify-center{
+  text-align: center;
+}
+/* Estilos para la página de crear cuenta */
 
+.template-register{
+ width:450px;
+ margin:auto;
+ padding:10px 20px;
+ margin-top:7px;
+ border-radius:7px;
+    /* background: #f8f7fa; */
+  }
+/* .posts-header{
+width:100%;
+color:rgb(206, 94, 94);
+padding:30px;
+height: 50px;
 
-
+  } */
 
 
 

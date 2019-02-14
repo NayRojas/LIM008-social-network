@@ -7,8 +7,10 @@ let posts = {
     // --------------------------------
     // TEMPLATE DE MURO
     let view =
-    `<div class="container">
-    <h1 class="rubik-font">Bienvenida </h1>
+
+    `<header class="posts-header">
+          <div class="container">
+     <h1 class="rubik-font">Bienvenida </h1>
     <p class="rubik-font">¡Empoderate hoy!</p>
     <input id="post-content" type="text" placeholder="¿En que estas pensado?" class= "karla-font" ></input>
     <p id="error-empty-input" class="error-message karla-font"></p>
@@ -16,6 +18,7 @@ let posts = {
     <a id="btn-to-pots-content" class= "button rubik-font purple-back center-text">Compartir</a><br><br><br>
     <a id="btn-Sign-Out" type="button" class= "button rubik-font gray-back black center-text">Cerrar sesión</a>
     <span id="post-content-list" type="text" class= "karla-font list-style"></span>
+    </header>
     </div>
     `;
     return view;
