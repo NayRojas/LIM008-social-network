@@ -41,7 +41,7 @@ let posts = {
     (uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : '') }
 
     
-    ${row.state === 'Público' ?  `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
+    ${row.state === 'Público' ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
     (uidUser === row.uidUser ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : '') }
 
 
@@ -99,6 +99,7 @@ let posts = {
       buttonsDelete.forEach((buttonDelete) => {
         const id = buttonDelete.dataset.id;
         buttonDelete.addEventListener('click', () => {
+          alert('Estás seguro que quieres eliminar tu post?');
           document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
           deletePost(id);
         });

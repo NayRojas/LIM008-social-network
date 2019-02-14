@@ -19,8 +19,8 @@ let initPage = {
   
     </section>
 
-    <div id="slide">
-    <img src="Css/img/jiko.jpg"/>
+    <div id="slide" >
+    <img src="Css/img/2.jpeg"/>
     </div>
 
     <div class="template-rps slid">
