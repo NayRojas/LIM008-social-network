@@ -68,7 +68,7 @@ export const deletePost = (postId) => {
 };
 // Funcion para dar like
 export const likePost = (id, counter) => {
-  firebase.firestore().collection('Posts').doc(id).update({
+  return firebase.firestore().collection('Posts').doc(id).update({
     'likes': counter
   });
 }; 

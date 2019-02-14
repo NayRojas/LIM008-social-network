@@ -18,26 +18,12 @@ let initPage = {
     </form>
     </section>
     <div id="slide">
-    <img src="Css/img/jiko.jpg"/>
+    <img src="Css/img/jiko.jpg" alt="imagen referencial"/>
     </div> `;
     return view;
   },
-  after_render: async() => {}
+  afterRender: async() => {}
 };
 
 export default initPage;
-{/* <section class= "container-init" >
-<div class="img-ppl container-rps">
-      <img src="Css/img/background3.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación " class="set-back mySlides">
-  </div>
-  <div class="btn-div btn-bottom ">
-    <a href="#/Register"  id="btn-register" class=" btn-init  btns-beside front-btn">
-    ¿Nuevo usuario?
-    </a>
-    <a href="#/Login" id="btn-log-in" class="btn-init btns-beside front-btn">
-    Iniciar sesión
-    </a>
-</div>
-  </section>
 
- */}

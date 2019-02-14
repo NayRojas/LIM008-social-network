@@ -1,3 +1,5 @@
+// ------------------------
+// PÁGINA MURO DE PUBLICACIONES
 import { postContent, postContentLs} from '../viewController.js';
 import { editPost, deletePost, signOut, likePost} from '../services/FirebaseTools.js';
 
@@ -6,16 +8,18 @@ let posts = {
     // --------------------------------
     // TEMPLATE DE MURO
     let view = `
+    <main>
     <div class="container">
     <h1 class="rubik-font">Bienvenida </h1>
     <p class="rubik-font">¡Empoderate hoy!</p>
-    <input id="post-content" type="text" placeholder="¿En que estas pensado?" class= "karla-font" ></input>
+    <input id="post-content" type="text" placeholder="¿En que estas pensado?" class= "karla-font" >
     <p id="error-empty-input" class="error-message karla-font"></p>
     <button id="privacy" class="privacy-btn rubik-font" >Público</button><br><br>
     <a id="btn-to-pots-content" class= "button rubik-font purple-back center-text">Compartir</a><br><br><br>
-    <a id="btn-Sign-Out" type="button" class= "button rubik-font gray-back black center-text">Cerrar sesión</a>
-    <span id="post-content-list" type="text" class= "karla-font list-style"></span>
+    <a id="btn-Sign-Out" type="text/html" class= "button rubik-font gray-back black center-text">Cerrar sesión</a>
+    <section id="post-content-list" class= "karla-font list-style"></section>
     </div>
+    </main>
     `;
     return view;
   },
@@ -36,11 +40,12 @@ let posts = {
     ${row.state === 'Público' ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : 
     (uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : '') }
 
-    ${row.state === 'Público' ?  `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
+    ${row.state === 'Público' ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
     (uidUser === row.uidUser ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : '') }
-    </div>`;
+    </div>
+    `;
   },
-  after_render: () => {
+  afterRender: () => {
     // --------------------------------
     // FUNCION PARA PINTAR TEMPLATE DE LISTA - función para recorrer template de lista de publicaciones
     const painPosts = (arrPosts) => {
