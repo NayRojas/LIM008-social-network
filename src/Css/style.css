@@ -4,6 +4,8 @@
 font-family: 'Rubik', sans-serif;
 font-family: 'Karla', sans-serif;
 */
+
+
 body{
   width: 100%;
 }
@@ -272,11 +274,52 @@ input:invalid {
   position: absolute;
   transition: opacity .5s ease-in;
 }
+#slide {
+  display: none;
+
+}
+#slide img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
 .mySlides + .mySlides{ opacity: 0; }
 
-@media (min-width:768px){
-  .img-ppl{
-    background-color: antiquewhite;
-  }  
+ 
+@media only screen and  (min-width: 800px)  { 
+  * {
+    box-sizing: border-box;
+    font-family: segoe UI;
+    margin:0; 
+    padding:0;
+  }
+.container-init{
+width: 50%;
+float: right;
+  height: 100%;
+  justify-content: center;
+  background: #f8f7fa;
 }
+  #slide {
+  float: left;
+  width: 50%;
+  height: 100%;
+  display: block;
+    }
+
+    .set-back{
+    display:none;
+  }
+
+} 
+
+
+
+
+
+
+
+
+
+
