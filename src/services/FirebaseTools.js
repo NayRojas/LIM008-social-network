@@ -1,3 +1,4 @@
+// --------------------------------
 // FUNCIONES PARA CREAR SESIÓN CON FB
 // con correo y contraseña
 export const signUp = (email, password) => {
@@ -17,12 +18,11 @@ export const signUpFacebook = () => {
   });
 };
 // --------------------------------
-// FUNCIONES PARA INICIAR SESIÓN CON FB
+// FUNCIONES PARA INICIAR SESIÓN 
 // iniciar sesión con correo y contraseña
 export const signIn = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password);
 };
-  
 // iniciar sesión con facebook
 export const signInFacebook = () => {
   const facebookProvider = new firebase.auth.FacebookAuthProvider();
@@ -33,6 +33,7 @@ export const signInGoogle = () => {
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth().signInWithPopup(googleProvider);
 };
+// --------------------------------
 // FUNCIONES PARA GUARDAR Y CREAR POSTS
 // guarda datos en fb
 export const postContentSafe = (postTxt, uidUser, privacy) => {
@@ -43,7 +44,6 @@ export const postContentSafe = (postTxt, uidUser, privacy) => {
     state: privacy,
   });
 };
-  
 // actualiza la colección de fb a la ui
 export const obtenerDatosFirebase = (callback) => {
   firebase.firestore().collection('Posts')
@@ -66,8 +66,15 @@ export const editPost = (postId, inputValue) => {
 export const deletePost = (postId) => {
   return firebase.firestore().collection('Posts').doc(postId).delete();
 };
+// Funcion para dar like
+export const likePost = (id, counter) => {
+  firebase.firestore().collection('Posts').doc(id).update({
+    'likes': counter
+  });
+}; 
 // --------------------------------
 // FUNCION PARA SALIR DE SESION 
 export const signOut = () => {
   return firebase.auth().signOut().then(() => location.hash = '/login');
 };
+
