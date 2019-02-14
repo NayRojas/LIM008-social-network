@@ -1,11 +1,12 @@
-import { postContent, postContentLs, signOutFromSession, editPostInWall, changePrivacy} from '../viewController.js';
-import { editPost, deletePost, quieroLike} from '../services/FirebaseTools.js';
+
+import { postContent, postContentLs} from '../viewController.js';
+import { editPost, deletePost, signOut, quieroLike} from '../services/FirebaseTools.js';
 
 let posts = {
-  render: async(postInputValue) => {
+  render: async() => {
     // --------------------------------
     // TEMPLATE DE MURO
-    let view = 
+    let view =
     `<div class="container">
     <h1 class="rubik-font">Bienvenida </h1>
     <p class="rubik-font">¡Empoderate hoy!</p>
@@ -30,15 +31,12 @@ let posts = {
     (uidUser === row.uidUser ? `<input id="input-${row.id}" data-state= "${row.state}" type="text" value="${row.descripcion}" class="ocultar-post post-style">` : '') }
 
     ${uidUser === row.uidUser ? `<a id="btn-to-delete-content-${row.id}" data-id="${row.id}" class="btn-delete">Eliminar</a>` : '' }
-    ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class='btn-edit'>Editar</a>` : '' }
+    ${uidUser === row.uidUser ? `<a id="btn-to-edit-content-${row.id}" data-id="${row.id}" class="btn-edit">Editar</a>` : '' }
     ${uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : '' }
     ${uidUser === row.uidUser ? `<b <a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> </b> ` : '' }
     <a id="btn-save-content-${row.id}" data-id="${row.id}" class='btn-save ocultar-post'>Guardar</a>
-    </div>
-    `;
+    </div>`;
   },
-  
-
   
   after_render: () => {
     // --------------------------------
@@ -59,7 +57,7 @@ let posts = {
       const buttonContador = document.querySelectorAll('.btn-count');
       console.log(buttonLike);
       console.log(buttonContador);
- 
+
       // LIKES - Evento para dar likes
 
       let counter = 0 ;
@@ -69,7 +67,7 @@ let posts = {
           console.log('me diste click');
           counter += 1 ;
           buttonContador.innerHTML = counter;
-   
+
           quieroLike(id, counter);
         });
       });
@@ -80,7 +78,6 @@ let posts = {
           document.getElementById(`btn-save-content-${id}`).classList.add('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.remove('ocultar-post');
           const inputValue = document.getElementById(`input-${id}`).value;
-          console.log(inputValue);
           editPost(id, inputValue);
         });
       });
@@ -90,11 +87,7 @@ let posts = {
         const id = buttonDelete.dataset.id;
         buttonDelete.addEventListener('click', () => {
           document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
-          // const showModal = 
-
-
-             deletePost(id);
-          // return showModal;
+          deletePost(id);
         });
       });
       // --------------------------------
@@ -106,41 +99,16 @@ let posts = {
           document.getElementById(id).classList.add('ocultar-post');
           document.getElementById(`btn-save-content-${id}`).classList.remove('ocultar-post');
           document.getElementById(`btn-to-edit-content-${id}`).classList.add('ocultar-post');
-          // editPostInWall(id);
         });
       });
     };
-
-//     postContentLs(pintar);
-//     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
-//       let postTxt = document.getElementById('post-content').value;
-//       postContent(postTxt);
-//       document.getElementById('post-content').value = '';
-//     });
-//     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
-//       console.log('entro al evento');
-//       signOutFromSession();
-//     });
-//   }
-// };
-
-// export default posts;
-   
-
-      // --------------------------------
-      // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
-    document.getElementById('privacy').addEventListener('click', () => {
-      changePrivacy();
-    });
-  
-    
+    // --------------------------------
     // PINTAR POSTS DE FB - Evento para editar posts
     postContentLs(pintar);
     document.getElementById('btn-to-pots-content').addEventListener('click', () => {
       // validación de input vacio
       let postTxt = document.getElementById('post-content').value;
       let privacy = document.getElementById('privacy').innerHTML;
-      console.log(postTxt + privacy);
       
       if (postTxt !== '') {
         postContent(postTxt, privacy);
@@ -149,9 +117,15 @@ let posts = {
         document.getElementById('btn-to-pots-content').classList.add('remove-link');
         document.getElementById('error-empty-input').innerHTML = 'Escribe una publicación';
       }
+      // --------------------------------
+      // PUBLICAR PRIVADO - Evento para seleccionar la privacidad del post
+      document.getElementById('privacy').addEventListener('click', () => {
+        let privacy = document.getElementById('privacy');
+        (privacy.innerHTML === 'Público' ? privacy.innerHTML = 'Privado' : privacy.innerHTML = 'Público');
+      });
     });
     document.getElementById('btn-Sign-Out').addEventListener('click', () => {
-      signOutFromSession();
+      signOut();
     });
   },  
 };
