@@ -1,3 +1,5 @@
+// ------------------------
+// PÁGINA MURO DE PUBLICACIONES
 import { postContent, postContentLs} from '../viewController.js';
 import { editPost, deletePost, signOut, likePost} from '../services/FirebaseTools.js';
 
@@ -5,17 +7,19 @@ let posts = {
   render: async() => {
     // --------------------------------
     // TEMPLATE DE MURO
-    let view = `
+    let view =
+    `<header class="posts-header">
     <div class="container">
     <h1 class="rubik-font">Bienvenida </h1>
     <p class="rubik-font">¡Empoderate hoy!</p>
-    <input id="post-content" type="text" placeholder="¿En que estas pensado?" class= "karla-font" ></input>
+    <input id="post-content" type="text" placeholder="¿En que estas pensado?" class= "karla-font" >
     <p id="error-empty-input" class="error-message karla-font"></p>
     <button id="privacy" class="privacy-btn rubik-font" >Público</button><br><br>
     <a id="btn-to-pots-content" class= "button rubik-font purple-back center-text">Compartir</a><br><br><br>
-    <a id="btn-Sign-Out" type="button" class= "button rubik-font gray-back black center-text">Cerrar sesión</a>
-    <span id="post-content-list" type="text" class= "karla-font list-style"></span>
+    <a id="btn-Sign-Out" type="text/html" class= "button rubik-font gray-back black center-text">Cerrar sesión</a>
+    <section id="post-content-list" class= "karla-font list-style"></section>
     </div>
+    </header>
     `;
     return view;
   },
@@ -36,11 +40,12 @@ let posts = {
     ${row.state === 'Público' ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : 
     (uidUser === row.uidUser ? `<a  id="btn-like-content-${row.id}" data-id ="${row.id}" class="btn-like">Me gusta  </a>` : '') }
 
-    ${row.state === 'Público' ?  `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
+    ${row.state === 'Público' ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
     (uidUser === row.uidUser ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : '') }
-    </div>`;
+    </div>
+    `;
   },
-  after_render: () => {
+  afterRender: () => {
     // --------------------------------
     // FUNCION PARA PINTAR TEMPLATE DE LISTA - función para recorrer template de lista de publicaciones
     const painPosts = (arrPosts) => {
@@ -56,14 +61,15 @@ let posts = {
       const buttonSave = document.querySelectorAll('.btn-save');
       const buttonDelete = document.querySelectorAll('.btn-delete');
       const buttonLike = document.querySelectorAll('.btn-like');
-      const buttonCounter = document.querySelectorAll('.btn-count');
+
       // LIKES - Evento para dar likes
-      let counter = 0 ;
       buttonLike.forEach((btnheart) => {
         const id = btnheart.dataset.id;
+        const showCont = document.getElementById(`btn-contador-${id}`);
+        let counter = parseInt(showCont.innerHTML);
         btnheart.addEventListener('click', () => {
-          counter += 1 ;
-          buttonCounter.innerHTML = counter;
+          counter = counter + 1 ;
+          document.getElementById(`btn-contador-${id}`).innerHTML = counter;
           likePost(id, counter);
         });
       });
@@ -82,6 +88,7 @@ let posts = {
       buttonDelete.forEach((btnDelete) => {
         const id = btnDelete.dataset.id;
         btnDelete.addEventListener('click', () => {
+          alert('Estás seguro que quieres eliminar tu post?');
           document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
           deletePost(id);
         });

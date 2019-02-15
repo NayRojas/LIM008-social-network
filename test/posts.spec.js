@@ -25,7 +25,7 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
-import { postContentSafe, obtenerDatosFirebase, deletePost, editPost } from '../src/services/FirebaseTools.js';
+import { postContentSafe, obtenerDatosFirebase, deletePost, editPost, likePost } from '../src/services/FirebaseTools.js';
 
 describe('postContentSafe', () => {
   it('debería ser una función', () => {
@@ -36,6 +36,9 @@ describe('postContentSafe', () => {
   });
   it('debería ser una función', () => {
     expect(typeof editPost).toBe('function');
+  });
+  it('debería ser una función', () => {
+    expect(typeof likePost).toBe('function');
   });
   it('debería poder agregar un post', (done) => {
     return postContentSafe('el post fue guardado', '0G5q03Wm2AWNgHfjTlLbJi3P8xA3', 'Privado')
@@ -63,6 +66,16 @@ describe('postContentSafe', () => {
         (data) => {
           const result = data.find((post) => post.id === 'ZoxPaIl9CFI0hUvRN1Fo');
           expect(result).toBe('Post editado :D');
+          done();
+        }
+      ));
+  });
+  it('debería poder agregar un like al post', () => {
+    return likePost('ZoxPaIl9CFI0hUvRN1Fo', 'Post editado :D')
+      .then(() => obtenerDatosFirebase(
+        (data) => {
+          const result = data.find((post) => post.state === 'ZoxPaIl9CFI0hUvRN1Fo');
+          expect(result).toBe('1');
           done();
         }
       ));
