@@ -6,7 +6,7 @@ import { signInOnSubmit, signInWithFacebook, signInWithGoogle } from '../viewCon
 let login = {
   render: async() => {
     let view = `
-    <section>
+    <section class= "template-register rps-design-form" >
     <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
     <form class="auth">
     <div class="container">
@@ -21,18 +21,19 @@ let login = {
     <p id="error-message-password" class="error-message short-padding karla-font"></p>
     <div class= "width-100">
     <a  id="button-to-log-in" type="text/html" class="button center-text purple-back">Iniciar sesión</a>
-    <p class="psw right-text karla-font short-padding">¿Olvidaste tu<a href="#" class="link-blue">contraseña?</a></p>
+    <p class="psw right-text justify-center karla-font short-padding">¿Olvidaste tu<a href="#" class="link-blue">contraseña?</a></p>
     <p id="error-missing-fields-on-registration" class="error-message center-text short-padding karla-font"></p>
     </div>
     <p class="center-text short-padding karla-font medium-margin-top"> - Continúa con - </p>
     <div class= "btn-div">
     <a  id="button-to-log-in-with-google" type="text/html" class="btn-short-padding button center-text icon-google white red-back two-button btns-beside" >Google</a>
     <a  id="button-to-log-in-with-facebook" type="text/html" class="btn-short-padding button center-text icon-facebook white blue-back two-button btns-beside" >Facebook</a>
-    </div>    
+    </div>   
     </div>
-      <p class="center-text karla-font long-margin">¿No tienes cuenta?, <a id="sign-up-from-log-in" class="link-blue">Registrate aquí.</a></p>
+    <p class="center-text karla-font long-margin">¿No tienes cuenta?, <a id="sign-up-from-log-in" class="link-blue">Registrate aquí.</a></p>
     </form>
     </section>
+
           `;
     return view;
   },

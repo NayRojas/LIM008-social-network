@@ -5,7 +5,7 @@ import { signUpOnSubmit, signUpWithGoogle, signUpWithFacebook } from '../viewCon
 let register = {
   render: async() => {
     let view = `
-    <section>
+    <section class= "template-register rps-design-form" >
     <img src="Css/img/medium-logo.png" alt="Logo purpura en forma de ola, simbolo de evolución, equidad y transformación" class="center-img">
     <form class="auth">
     <div class="container">

@@ -77,4 +77,3 @@ export const likePost = (id, counter) => {
 export const signOut = () => {
   return firebase.auth().signOut().then(() => location.hash = '/login');
 };
-

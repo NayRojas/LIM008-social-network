@@ -7,8 +7,8 @@ let posts = {
   render: async() => {
     // --------------------------------
     // TEMPLATE DE MURO
-    let view = `
-    <main>
+    let view =
+    `<header class="posts-header">
     <div class="container">
     <h1 class="rubik-font">Bienvenida </h1>
     <p class="rubik-font">¡Empoderate hoy!</p>
@@ -19,7 +19,7 @@ let posts = {
     <a id="btn-Sign-Out" type="text/html" class= "button rubik-font gray-back black center-text">Cerrar sesión</a>
     <section id="post-content-list" class= "karla-font list-style"></section>
     </div>
-    </main>
+    </header>
     `;
     return view;
   },
@@ -61,14 +61,15 @@ let posts = {
       const buttonSave = document.querySelectorAll('.btn-save');
       const buttonDelete = document.querySelectorAll('.btn-delete');
       const buttonLike = document.querySelectorAll('.btn-like');
-      const buttonCounter = document.querySelectorAll('.btn-count');
+
       // LIKES - Evento para dar likes
-      let counter = 0 ;
       buttonLike.forEach((btnheart) => {
         const id = btnheart.dataset.id;
+        const showCont = document.getElementById(`btn-contador-${id}`);
+        let counter = parseInt(showCont.innerHTML);
         btnheart.addEventListener('click', () => {
-          counter += 1 ;
-          buttonCounter.innerHTML = counter;
+          counter = counter + 1 ;
+          document.getElementById(`btn-contador-${id}`).innerHTML = counter;
           likePost(id, counter);
         });
       });
@@ -87,6 +88,7 @@ let posts = {
       buttonDelete.forEach((btnDelete) => {
         const id = btnDelete.dataset.id;
         btnDelete.addEventListener('click', () => {
+          alert('Estás seguro que quieres eliminar tu post?');
           document.getElementById(`btn-to-delete-content-${id}`).classList.add('btn-delete');
           deletePost(id);
         });
