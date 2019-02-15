@@ -71,11 +71,11 @@ describe('postContentSafe', () => {
       ));
   });
   it('debería poder agregar un like al post', () => {
-    return likePost('ZoxPaIl9CFI0hUvRN1Fo', 'Post editado :D')
+    return likePost('ZoxPaIl9CFI0hUvRN1Fo', 1)
       .then(() => obtenerDatosFirebase(
         (data) => {
-          const result = data.find((post) => post.state === 'ZoxPaIl9CFI0hUvRN1Fo');
-          expect(result).toBe('1');
+          const result = data.find((post) => post.likes === 1 );
+          expect(result).toBe(1);
           done();
         }
       ));
