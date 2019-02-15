@@ -43,11 +43,6 @@ let posts = {
     
     ${row.state === 'Público' ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : 
     (uidUser === row.uidUser ? `<a  id ="btn-contador-${row.id}"  data-id ="${row.id}" class='btn-count' >${row.likes} </a> ` : '') }
-
-
-   
-  
- 
     </div>`;
   },
    
@@ -67,20 +62,17 @@ let posts = {
       const botonesGuardar = document.querySelectorAll('.btn-save');
       const buttonsDelete = document.querySelectorAll('.btn-delete');
       const buttonLike = document.querySelectorAll('.btn-like');
-      const buttonContador = document.querySelectorAll('.btn-count');
-      console.log(buttonLike);
-      console.log(buttonContador);
+     
 
       // LIKES - Evento para dar likes
-
-      let counter = 0 ;
       buttonLike.forEach((btnheart) => {
         const id = btnheart.dataset.id;
-        btnheart.addEventListener('click', () => {
-          console.log('me diste click');
-          counter += 1 ;
-          buttonContador.innerHTML = counter;
+        const showCont = document.getElementById(`btn-contador-${id}`);
+        let counter = parseInt(showCont.innerHTML);
 
+        btnheart.addEventListener('click', () => {
+          counter = counter + 1 ;
+          document.getElementById(`btn-contador-${id}`).innerHTML = counter;
           quieroLike(id, counter);
         });
       });
