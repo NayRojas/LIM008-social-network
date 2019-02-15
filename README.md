@@ -1,12 +1,12 @@
-# Red Social, Eva
+# Red Social, [Eva](https://nayrojas.github.io/LIM008-social-network/src/)
 
- ![Muro](http://subirimagen.me/uploads/20190210155721.png)
+ ![Muro](http://i.picasion.com/pic88/9aa382b129b354f02a5bbf1e1af26182.gif)
 
-[Prototipo Interactivo](https://es.wikipedia.org/wiki/Single-page_application)
+[Prototipo Interactivo](https://www.figma.com/file/LkVuX2YdLggLNwsDg3XjzZlX/Untitled?node-id=79%3A0)
 
-[Product slide](https://docs.google.com/presentation/d/1p8JJABlDXPBO8KRN2sSwgdI4ooGBE-SEHxcfQPeF2zw/edit?usp=sharing)
+[UX Product](https://docs.google.com/presentation/d/1p8JJABlDXPBO8KRN2sSwgdI4ooGBE-SEHxcfQPeF2zw/edit?usp=sharing)
 
-[Lean Canvas y recursos](https://es.wikipedia.org/wiki/Single-page_application)
+[Lean Canvas y recursos](https://docs.google.com/spreadsheets/d/10hoAwNiAhnkT1LVijnBcz6A7yaYecW_9pD4JAk1mzO8/edit?usp=sharing)
 
 
 ## Preámbulo
@@ -107,11 +107,12 @@ El diseño y proyección de la red, en su primera fase, esta pensado en crear un
   - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
   - Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
 
-
 * Iniciar sesión:
   - Con usuario y contraseña: los datos almacenados en esta acción se validan contra los datos en Firebase para validar si el usuario existe, levantando las alertas cuando no se encuentre registrado, la contraseña sea invalidad o la credencial no concuerde con el email ingresado. 
   - Con Google: la aplicación brinda al usuario la opción de autenticarse con sus cuentas de correo Google.
   - Con Facebook: la aplicación facilita la opción de emplear sus cuentas de Facebook para ingresar a la app web. 
+
+Como funciones principales puede:
 
 * Publicar **posts**:
   - A traves de un area de texto el usuario puede compartir un texto.
@@ -120,32 +121,25 @@ El diseño y proyección de la red, en su primera fase, esta pensado en crear un
   - **Elminiar**: podrá elminar definitivamente un post de la lista pública o privada.
   - **Me gusta**: podrá manifestar su gusto por el post de su preferencia al dar clic. 
 
- ### Funciones principales
 
-Aquí colocaremos las funciones principales y por que?
+### Iteración
 
-  ### Modelado de datos
-  Para lograr la obtención de datos de ingresos personales , tales como : registro con email , Google & Facebook. Se utilizó Firebase. Logrando así que la aplicación las interacciones de editar , eliminar , publicar y dar "Me gusta" en tiempo real. 
+Durante la primera fase de iteración, los usuarios sugirieron las siguientes ideas:
 
-   https://firebase.google.com/?hl=es-419
+- Tener una sección donde pueda colocar mi nombre y datos de perfil.
+- Me gustaría ver mi foto.
+- Quiero colocar alguna frase que me identifique.
+- Cada publicación debe verse con el nombre de la persona que lo escribió. 
+- Quisiera añadir amigos. 
+- El slogan y pagina de inicio no deja claro porque es una red para mujeres. 
+- Deberpia tener frases descriptivas.
+- Quisiera poder añadir contenido multimedia y emojis. 
 
-  ### UX Design
-   
-  #### Ideación
+En consideración de estas opiniones, se tomará en cuenta para la **fase piloto** realizar los ajustes a favor de optimizar el contenido y estructura de la UI. Adicional a ello, se plantean las siguientes mejoras para las proximas fases:
 
-  #### Benchmark
-  Nuestras fuentes de inspiración fueron dos páginas en especial:
-
-![img insta](http://subirimagen.me/uploads/20190212065538.png)
-
-  #### Paleta de colores
-
-![img palette](http://subirimagen.me/uploads/20190212065414.jpg)
-
-  #### Tipografía
+- Dividir la UI en resposive para desktop y tablet en 3 secciones: una para el perfil del usuario, otra para el muro de publicaciones y la siguiente para las tendencias.
+- Habilitar un chat para las personas online. 
+- Evaluar el logo.
+- Optimizar la funcionalidad del muro en virtud de ofrecer una mejor UX. 
 
 
-  #### Iteración del producto
-  
-
-Aquí colocaremos como organizamos los datos en firebase y por que?
